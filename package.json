@@ -1,0 +1,42 @@
+{
+  "name": "agentic-app-loop",
+  "version": "0.1.0",
+  "description": "Install the build-app skill: a 7-phase agentic loop (PLAN, TEST, IMPLEMENT, REVIEW, VERIFY, REMEMBER, IMPROVE) with one subagent per phase for Claude Code.",
+  "type": "module",
+  "bin": {
+    "agentic-app-loop": "bin/install.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "agents/",
+    "commands/",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srinivasan-78/agentic-app-loop.git"
+  },
+  "homepage": "https://github.com/Srinivasan-78/agentic-app-loop#readme",
+  "bugs": {
+    "url": "https://github.com/Srinivasan-78/agentic-app-loop/issues"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "agents",
+    "subagents",
+    "tdd",
+    "workflow",
+    "orchestration",
+    "code-review"
+  ],
+  "author": "Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com> (https://github.com/Srinivasan-78)",
+  "license": "MIT"
+}

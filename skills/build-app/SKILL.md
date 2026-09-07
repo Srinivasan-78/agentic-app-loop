@@ -8,6 +8,13 @@ description: >-
   rather than ad hoc. Triggers: "build an app", "add this feature properly",
   "do this the right way", "use the loop", "TDD this".
 ---
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​​‌‌​​‌‌‌​‌​​​‌​‌​​‌​​‌​​​‌‌‌​‌​​‌‌‌​​‌​​‌‌​‌​‌​​​​‌​​‌‌​‌‌​​​‌​​‌‌‌​​‌‌‌​​​​​‌‌​​​‌‌​​‌‌‌​​‌​‌‌​‌​​​​‌‌​​‌​​​‌‌​‌‌‌‌​‌​‌​‌​​​‌​‌​‌‌‌​‌​‌​‌​​​‌‌‌​‌​​​​‌‌​‌‌‌​‌‌‌​​​‌​‌​‌​‌​​⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.ftRGNMBlNpc9hdoTWTt7qT
+-->
 
 # Build App — the 7-phase agentic loop
 

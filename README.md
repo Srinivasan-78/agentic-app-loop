@@ -1,3 +1,10 @@
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌‌‌​​‌‌​​‌​​‌‌​​​‌​​‌‌​‌‌​​​‌‌‌​‌‌​​‌​‌‌​​‌​‌‌​​‌‌‌​‌‌​​​‌​​‌​​‌​‌​​‌​‌​‌‌‌​‌‌​​​‌‌​​‌‌​​‌​​‌‌‌​‌‌‌​​‌‌​​‌‌​‌‌‌​​​‌​​‌‌​​‌‌​‌‌‌​‌​‌​‌​​‌​‌‌​‌​​‌​​‌​​‌​‌‌​‌​‌​​‌​‌‌​‌‌‌​​‌‌⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.W2blvYgbJWc2w3q3uKI-Ks
+-->
 # agentic-app-loop
 
 A Claude Code skill for building and extending **real applications** through a
@@ -50,10 +57,30 @@ The loop keeps its shape for every case; the phases adapt:
 
 ## Install
 
-**As a plugin (recommended):**
+**With npx (recommended)** — copies the skill, the 7 subagents, and the
+`/build-app` command into a Claude Code config dir:
 
 ```
-/plugin marketplace add <your-org>/agentic-app-loop
+# into ./.claude of the current project
+npx github:Srinivasan-78/agentic-app-loop
+
+# into ~/.claude (every project on this machine)
+npx github:Srinivasan-78/agentic-app-loop --global
+
+# into a specific project
+npx github:Srinivasan-78/agentic-app-loop --dir path/to/project
+
+# preview only
+npx github:Srinivasan-78/agentic-app-loop --dry-run
+```
+
+Flags: `--global`/`-g`, `--dir <path>`, `--force` (overwrite), `--dry-run`,
+`--help`. Restart Claude Code afterwards so it discovers the new skill.
+
+**As a plugin:**
+
+```
+/plugin marketplace add Srinivasan-78/agentic-app-loop
 /plugin install agentic-app-loop@agentic-app-loop
 ```
 
@@ -76,6 +103,9 @@ remembered, top backlog items.
 ## Layout
 
 ```
+bin/
+  install.mjs           the `npx` installer (GitHub user Srinivasan-78 baked in)
+package.json            exposes the `agentic-app-loop` bin
 .claude-plugin/
   plugin.json           plugin manifest
   marketplace.json      so `/plugin marketplace add` works on this repo
@@ -84,13 +114,15 @@ skills/build-app/
   references/
     phase-contracts.md  exact per-phase contract each subagent follows
     state-schema.md     shape of BUILD_STATE.md
-templates/
-  BUILD_STATE.md        copied into the target repo per run
+  templates/
+    BUILD_STATE.md      copied into the target repo per run
 agents/
   plan-agent.md  test-agent.md  implement-agent.md  review-agent.md
   verify-agent.md  remember-agent.md  improve-agent.md
 commands/
   build-app.md          the /build-app slash command
+.github/workflows/
+  authormark.yml        authorship-watermark check via Srinivasan-78/authormark-watch
 ```
 
 ## Customizing
@@ -100,6 +132,22 @@ commands/
 - Change models per phase in each agent's frontmatter (`plan` and `review`
   default to `opus`, the rest `inherit`).
 - Adjust the iteration cap and loop-back rules in `SKILL.md`.
+
+## Authorship
+
+Every source file is watermarked with an `@authormark v1` header and a keyed
+fingerprint, sealed in `AUTHORSHIP.json` / `AUTHORSHIP.log`. This repo is run
+through the [AuthorMark](https://github.com/Srinivasan-78/authormark-watch)
+engine:
+
+- `.github/workflows/authormark.yml` runs a presence check on every push/PR
+  (and a full fingerprint verify when `AUTHORMARK_KEY` is set as a secret).
+- The account-wide scheduled watch in `authormark-watch` picks this repo up
+  automatically for the daily supervision pass.
+
+Do not delete or relocate the header blocks — see [AGENTS.md](AGENTS.md). After
+editing a file, refresh its fingerprint with
+`node authormark.mjs stamp <file>` from the AuthorMark engine.
 
 ## License
 

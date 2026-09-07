@@ -1,0 +1,47 @@
+# @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌​‌​​​‌‌‌​​​​‌​‌​‌‌​​‌‌​​​‌​​​‌‌‌​​​​​‌​‌‌​‌​‌​​‌‌​‌​‌​​‌​‌‌​‌​​​​​‌​​‌‌​​‌​​‌‌​​‌​‌​‌​​​​‌​​‌‌‌‌​​‌​‌‌​‌‌​‌​​‌‌​‌​‌​​‌‌​‌‌‌​‌​‌‌‌‌‌​‌‌​‌​‌​​‌‌‌​‌‌‌​‌​​​​​‌​‌​‌‌‌‌‌​‌‌​‌‌‌‌⁠
+# Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+# Author: https://github.com/Srinivasan-78
+# SPDX-License-Identifier: MIT
+# Fingerprint: AMK1.j8Vb8-MKA2eBym57_jwA_o
+name: AuthorMark
+
+# Runs this repo through the AuthorMark engine maintained in
+# Srinivasan-78/authormark-watch — the account-wide authorship-watermark
+# supervisor. On push / PR it checks every source file still carries its
+# @authormark v1 header. The scheduled account-wide watch in authormark-watch
+# also picks this repo up automatically.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authormark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Presence check needs no secret. Full fingerprint verification runs only
+      # when the HMAC key is available as a repo secret.
+      - name: AuthorMark — presence check
+        uses: Srinivasan-78/authormark-watch@main
+        with:
+          mode: check-presence
+          path: .
+
+      - name: AuthorMark — fingerprint verify
+        if: ${{ secrets.AUTHORMARK_KEY != '' }}
+        uses: Srinivasan-78/authormark-watch@main
+        with:
+          mode: check
+          path: .
+          key: ${{ secrets.AUTHORMARK_KEY }}

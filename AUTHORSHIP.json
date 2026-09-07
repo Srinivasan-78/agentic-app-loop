@@ -1,0 +1,88 @@
+{
+  "schema": "authormark/manifest/1",
+  "algo": "hmac",
+  "author": "Srinivasan Vijayaraghavan",
+  "email": "srinivasan.shyam2000@gmail.com",
+  "github": "https://github.com/Srinivasan-78",
+  "sealedAt": "2026-09-07T07:54:22.960Z",
+  "fileCount": 15,
+  "digest": "f7a23f83c2b9a02cb13b83f22caabd5b488abed4983e63943830ea3fbd2ec3a1",
+  "proof": "8aee0a3423280aa685c563d76e666c3a42597747e13829e47b6cc2c9876d9c6d",
+  "files": [
+    {
+      "path": ".github\\workflows\\authormark.yml",
+      "sha256": "40c8d695ef34aaf8136a3fc95e39f38771a51310a7b36ea071fcae39051a0639",
+      "bytes": 1950
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "e7d36c4ce0599684fd83679461e6b5100e8836bf87da8a69c941d056cbdbf216",
+      "bytes": 1569
+    },
+    {
+      "path": "README.md",
+      "sha256": "5f65b66c45aff2d80cff4878a228f3c5b6ad18ca0569952aab37b6f2cd761f31",
+      "bytes": 7062
+    },
+    {
+      "path": "agents\\implement-agent.md",
+      "sha256": "7344899878ef995ca7042e1ee54a623e473175beaac47b2958983e08805e90fc",
+      "bytes": 1882
+    },
+    {
+      "path": "agents\\improve-agent.md",
+      "sha256": "ba31265340aa7e03f5297d5506bb25ffdecb945da9619df40e5515d7f27a086a",
+      "bytes": 2048
+    },
+    {
+      "path": "agents\\plan-agent.md",
+      "sha256": "58bbd68fff2eec42ebdfdd94cfeedd1b88ec55664343050224bb94ed7e7b0110",
+      "bytes": 1936
+    },
+    {
+      "path": "agents\\remember-agent.md",
+      "sha256": "409721e78bbf063404d536c230e4901a03236ad021c39494b6048f11609ce36c",
+      "bytes": 1981
+    },
+    {
+      "path": "agents\\review-agent.md",
+      "sha256": "c5d0a921350d6cdcb54f23ff18ca8acadd946ccf18ea68a75672e79b8b4dbabb",
+      "bytes": 2199
+    },
+    {
+      "path": "agents\\test-agent.md",
+      "sha256": "6b93452abbcd385fcac64b8dc538754b42fc61c9ddcc982ecb60b655b322684c",
+      "bytes": 1868
+    },
+    {
+      "path": "agents\\verify-agent.md",
+      "sha256": "7803d3efcc78c8e930b775475ae8ab66c69e1e1d957fcc0cb6d409126ef14cd0",
+      "bytes": 2114
+    },
+    {
+      "path": "bin\\install.mjs",
+      "sha256": "de44c2f295ad98210bbd203bc712f440a20c28782b23d23b2e010945e39ba04d",
+      "bytes": 5151
+    },
+    {
+      "path": "commands\\build-app.md",
+      "sha256": "3e6519034d3bdd6fd0525b704c96fe89b9ffed866fb6f622951fc6f7cb6c30ff",
+      "bytes": 1423
+    },
+    {
+      "path": "skills\\build-app\\SKILL.md",
+      "sha256": "72df836d4872d85c85596442933afe1bbbb0d4730554f8107ed5a5c9ae22af61",
+      "bytes": 5893
+    },
+    {
+      "path": "skills\\build-app\\references\\phase-contracts.md",
+      "sha256": "f1fb5f859755e41f11f9faaf1f7d5849a357ff6643d944a6a8fad972b81424c1",
+      "bytes": 7815
+    },
+    {
+      "path": "skills\\build-app\\references\\state-schema.md",
+      "sha256": "b8db3005c0bceb89691ccd277421d16d5cff3ef4020072d95072328316e2c6de",
+      "bytes": 2256
+    }
+  ]
+}
