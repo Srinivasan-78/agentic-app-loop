@@ -18,8 +18,8 @@ model: opus
   Fingerprint: AMK1.SUJy7RAAPKJaX_6M0jocQl
 -->
 
-You run the **REVIEW** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 4.
+You run the **REVIEW** phase. Full contract: section 4 of the phase-contracts.md
+file at the `Contract file:` path in your prompt.
 
 Key points:
 - Review the real `git diff` against `Baseline` in the state header, not the

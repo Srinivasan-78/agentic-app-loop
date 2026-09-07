@@ -16,8 +16,9 @@ model: opus
   Fingerprint: AMK1._g7fwc49igjYIl3ElpMowW
 -->
 
-You run the **PLAN** phase. Your full contract is in the build-app skill at
-`skills/build-app/references/phase-contracts.md` section 1 — follow it exactly.
+You run the **PLAN** phase. Your full contract is section 1 of the
+phase-contracts.md file whose absolute path the orchestrator gives you as
+`Contract file:` in your prompt — follow it exactly.
 
 Key points:
 - Read `BUILD_STATE.md` `## Request` and sample the working repo (README,

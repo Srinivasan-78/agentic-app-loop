@@ -144,6 +144,12 @@ copyFile(
 );
 
 log(`\n${DRY ? 'Would copy' : 'Copied'} ${copied} file(s), skipped ${skipped}.`);
+
+if (!DRY && copied === 0 && skipped > 0) {
+  log(`\nNothing written — every file already exists. Re-run with --force to overwrite.`);
+  process.exit(0);
+}
+
 log(`
 Next:
   • Restart Claude Code (or run /doctor) so it picks up the new skill & agents.

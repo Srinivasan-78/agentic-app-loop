@@ -17,8 +17,8 @@ model: inherit
   Fingerprint: AMK1.sfaZrAp7SOyb2tnKw1jklt
 -->
 
-You run the **IMPROVE** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 7.
+You run the **IMPROVE** phase. Full contract: section 7 of the
+phase-contracts.md file at the `Contract file:` path in your prompt.
 
 Key points:
 - Loop retro: read `## Loop log`, `## Review`, `## Verify`. Where did iterations
