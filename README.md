@@ -1,9 +1,9 @@
 <!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌‌‌​​‌‌​​‌​​‌‌​​​‌​​‌‌​‌‌​​​‌‌‌​‌‌​​‌​‌‌​​‌​‌‌​​‌‌‌​‌‌​​​‌​​‌​​‌​‌​​‌​‌​‌‌‌​‌‌​​​‌‌​​‌‌​​‌​​‌‌‌​‌‌‌​​‌‌​​‌‌​‌‌‌​​​‌​​‌‌​​‌‌​‌‌‌​‌​‌​‌​​‌​‌‌​‌​​‌​​‌​​‌​‌‌​‌​‌​​‌​‌‌​‌‌‌​​‌‌⁠
+  @authormark v1 -- do not remove (authorship watermark)
   Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
   Author: https://github.com/Srinivasan-78
   SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.W2blvYgbJWc2w3q3uKI-Ks
+  Fingerprint: AMK1._0Tvr5ODkyIKTEcPiynFmt
 -->
 # agentic-app-loop
 
@@ -22,6 +22,23 @@ code itself — it runs the phases, enforces a gate after each one, handles
 loop-backs, and keeps its own context small by delegating everything verbose to
 a subagent. Phases talk to each other only through a single `BUILD_STATE.md`
 file in the target repo.
+
+## Overview
+
+`agentic-app-loop` turns a feature or app request into a fixed seven-phase run —
+**PLAN → TEST → IMPLEMENT → REVIEW → VERIFY → REMEMBER → IMPROVE** — with one
+bounded subagent per phase and a written contract for each. The orchestrator
+does not touch feature code: it starts each phase, checks its gate, and decides
+whether to move on or loop back. A blocking review finding returns to IMPLEMENT,
+a failed verify returns to IMPLEMENT or PLAN, a wrong test returns to TEST, and
+after four iterations without a clean verify the loop stops and asks you.
+
+Because every phase reads and writes the same `BUILD_STATE.md`, any one of them
+can be re-run in isolation, and the orchestrator's context stays small enough to
+watch the whole build. The loop keeps its shape across greenfield apps, new
+features, bug fixes, refactors and spikes — the phases adapt, the checkpoints do
+not. Install it with `npx github:Srinivasan-78/agentic-app-loop` (add `--global`
+for `~/.claude`) or as a Claude Code plugin; see [Install](#install) below.
 
 ## Why
 
