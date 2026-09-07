@@ -1,0 +1,11 @@
+{
+  "name": "agentic-app-loop",
+  "owner": { "name": "Shyam Srinivasan" },
+  "plugins": [
+    {
+      "name": "agentic-app-loop",
+      "source": "./",
+      "description": "PLAN→TEST→IMPLEMENT→REVIEW→VERIFY→REMEMBER→IMPROVE loop with one subagent per phase."
+    }
+  ]
+}

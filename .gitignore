@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Local Claude state
+.claude/settings.local.json
+
+# Node (if examples are added later)
+node_modules/
