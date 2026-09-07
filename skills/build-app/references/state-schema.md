@@ -38,8 +38,9 @@ Started: <ISO date>
 
 ## Rules
 
-- A subagent edits only its own section (plus `## Loop log` and the header
-  `Status` / `Iteration`).
+- A subagent edits only its own section, the `## Loop log`, and the header
+  `Status`. The orchestrator owns `Iteration` and is the final authority on
+  `Status` if a subagent's hand-off disagrees with the gate.
 - Verbose evidence (full logs, long diffs) goes here, not into chat or the
   subagent's report.
 - If the file passes ~1500 lines, older `### Iteration` blocks may be collapsed

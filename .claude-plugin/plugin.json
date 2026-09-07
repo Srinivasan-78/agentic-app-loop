@@ -2,6 +2,6 @@
   "name": "agentic-app-loop",
   "description": "Build and extend real apps through a 7-phase loop — PLAN, TEST, IMPLEMENT, REVIEW, VERIFY, REMEMBER, IMPROVE — each phase run by its own bounded subagent.",
   "version": "0.1.0",
-  "author": { "name": "Shyam Srinivasan" },
+  "author": { "name": "Srinivasan Vijayaraghavan", "email": "srinivasan.shyam2000@gmail.com", "url": "https://github.com/Srinivasan-78" },
   "keywords": ["agents", "workflow", "tdd", "orchestration", "code-review"]
 }

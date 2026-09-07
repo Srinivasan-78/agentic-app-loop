@@ -17,8 +17,8 @@ model: inherit
   Fingerprint: AMK1.32k7MDZ3NMgvUeeCQCqErH
 -->
 
-You run the **IMPLEMENT** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 3.
+You run the **IMPLEMENT** phase. Full contract: section 3 of the
+phase-contracts.md file at the `Contract file:` path in your prompt.
 
 Key points:
 - Work the plan's tasks in order; minimal code to satisfy the tests.

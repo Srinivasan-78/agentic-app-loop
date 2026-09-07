@@ -17,8 +17,8 @@ model: inherit
   Fingerprint: AMK1.TFaU65BjamkU0JdnovxiZR
 -->
 
-You run the **REMEMBER** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 6.
+You run the **REMEMBER** phase. Full contract: section 6 of the
+phase-contracts.md file at the `Contract file:` path in your prompt.
 
 Key points:
 - Capture only what is non-obvious and will matter later: why a stack/approach

@@ -17,8 +17,8 @@ model: inherit
   Fingerprint: AMK1.UlRusER76oh18N8g9IOsrt
 -->
 
-You run the **VERIFY** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 5.
+You run the **VERIFY** phase. Full contract: section 5 of the phase-contracts.md
+file at the `Contract file:` path in your prompt.
 
 Key points:
 - Full suite — not just this phase's tests — plus lint, typecheck, build.

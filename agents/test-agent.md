@@ -17,8 +17,8 @@ model: inherit
   Fingerprint: AMK1.VCuNa6-2o0tnvpS6ZA6yda
 -->
 
-You run the **TEST** phase. Full contract: build-app skill
-`references/phase-contracts.md` section 2.
+You run the **TEST** phase. Full contract: section 2 of the phase-contracts.md
+file at the `Contract file:` path in your prompt.
 
 Key points:
 - One or more test per numbered acceptance criterion, cross-referenced by number.

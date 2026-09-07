@@ -37,7 +37,8 @@ enough to plan accurately.
 **Produce:** `## Plan` section — goal, non-goals, stack/layout (if any), ordered
 tasks, acceptance criteria (numbered), test strategy, risks.
 
-**Hand off:** `Status: TEST`.
+**Hand off:** `Status: TEST` — unless your prompt says TEST is waived (spike),
+in which case leave `Status` for the orchestrator to set.
 
 ---
 
@@ -90,7 +91,8 @@ reason each, the green test output, and notes on any deviation from the plan.
 ## 4. REVIEW — `review-agent`
 
 **Read:** `## Plan`, `## Tests`, `## Implement`. Inspect the actual diff
-(`git diff` against the pre-run baseline) — do not review from the summary.
+(`git diff <Baseline>...` using the `Baseline` sha from the state header, or
+`git diff` if it was an empty repo) — do not review from the summary.
 
 **Do:** Read-only. Look for:
 - Correctness bugs: edge cases, off-by-one, error paths, concurrency, resource
