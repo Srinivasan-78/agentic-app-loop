@@ -12,3 +12,9 @@ Thumbs.db
 
 # Node (if examples are added later)
 node_modules/
+
+# Master Bot hygiene additions
+__pycache__/
+*.py[cod]
+.env
+.env.local
