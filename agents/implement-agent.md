@@ -10,11 +10,11 @@ tools: Read, Grep, Glob, Bash, Write, Edit
 model: inherit
 ---
 <!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​​‌‌​​‌‌​​‌‌​​‌​​‌‌​‌​‌‌​​‌‌​‌‌‌​‌​​‌‌​‌​‌​​​‌​​​‌​‌‌​‌​​​‌‌​​‌‌​‌​​‌‌‌​​‌​​‌‌​‌​‌‌​​‌‌‌​‌‌‌​‌‌​​‌​‌​‌​‌​‌‌​​‌​‌​‌‌​​‌​‌​‌​​​​‌‌​‌​‌​​​‌​‌​​​​‌‌​‌‌‌​​​‌​‌​​​‌​‌​‌‌‌​​‌​​‌​​‌​​​⁠
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌‌​‌​​‌‌​‌​‌​‌​​‌​​‌​​‌‌‌​​‌​‌​‌​‌​​​‌‌‌​‌‌​​‌​​​​​‌​‌​​​​‌‌​‌​​‌‌‌‌​‌​​‌​​​​‌‌​‌​‌​​‌‌​‌​‌‌​‌​​‌‌‌‌​​‌‌​‌​‌​‌​​​‌‌​​‌‌​​‌‌​​‌‌​‌​​‌​‌‌​​​​‌​‌‌​​‌​‌​‌‌‌​​​‌​​‌‌​‌​​​‌‌‌​‌‌​⁠
   Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
   Author: https://github.com/Srinivasan-78
   SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.32k7MDZ3NMgvUeeCQCqErH
+  Fingerprint: AMK1.m5I9TvACOHjkO5Ffiaeq4v
 -->
 
 You run the **IMPLEMENT** phase. Full contract: section 3 of the

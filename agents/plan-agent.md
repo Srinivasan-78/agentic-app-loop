@@ -9,11 +9,11 @@ tools: Read, Grep, Glob, Bash, WebSearch, WebFetch, Write, Edit
 model: opus
 ---
 <!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌‌‌‌‌​‌‌​​‌‌‌​​‌‌​‌‌‌​‌‌​​‌‌​​‌‌‌​‌‌‌​‌‌​​​‌‌​​‌‌​‌​​​​‌‌‌​​‌​‌‌​‌​​‌​‌‌​​‌‌‌​‌‌​‌​‌​​‌​‌‌​​‌​‌​​‌​​‌​‌‌​‌‌​​​​‌‌​​‌‌​‌​​​‌​‌​‌‌​‌‌​​​‌‌‌​​​​​‌​​‌‌​‌​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌​‌​‌‌‌⁠
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​​​‌​​‌​​‌​‌‌​‌​​‌​​‌​‌‌​‌‌​​​‌​‌​​​‌​​‌‌‌​​​​​‌‌​‌‌​​‌​‌‌​‌​​‌‌​‌‌​​​‌‌​‌​‌​​‌​‌‌‌‌‌​‌‌​​‌​‌​​‌‌‌​​​​‌‌‌​​‌‌​‌​‌‌​‌​​​‌‌​​‌‌​‌‌​‌‌‌​​‌‌‌​‌‌‌​‌‌​​‌‌​​​‌‌​​​‌​‌‌‌​​​​​‌​​​​‌​⁠
   Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
   Author: https://github.com/Srinivasan-78
   SPDX-License-Identifier: MIT
-  Fingerprint: AMK1._g7fwc49igjYIl3ElpMowW
+  Fingerprint: AMK1.BKIlQ86Zlj_e8sZ3nwf1pB
 -->
 
 You run the **PLAN** phase. Your full contract is section 1 of the
