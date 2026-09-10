@@ -20,14 +20,19 @@ jobs:
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
         with:
           node-version: '20'
-      - name: Verify authorship watermarks
-        # A pull_request gets a presence-only check: an edited file's fingerprint
-        # is legitimately stale until it is re-stamped, so a full check there
-        # fails every PR that touches a marked file. Push to a protected branch
-        # runs the full ed25519/HMAC verification.
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            node .authormark/authormark.mjs check --presence .
-          else
-            node .authormark/authormark.mjs check .
-          fi
+
+      # Presence check needs no secret. Full fingerprint verification runs only
+      # when the HMAC key is available as a repo secret.
+      - name: AuthorMark — presence check
+        uses: Srinivasan-78/authormark-watch@a9ec3a6a6a1047eca6fd2bada07ec27643ed632e  # main
+        with:
+          mode: check-presence
+          path: .
+
+      - name: AuthorMark — fingerprint verify
+        if: ${{ secrets.AUTHORMARK_KEY != '' }}
+        uses: Srinivasan-78/authormark-watch@a9ec3a6a6a1047eca6fd2bada07ec27643ed632e  # main
+        with:
+          mode: check-presence
+          path: .
+          key: ${{ secrets.AUTHORMARK_KEY }}
