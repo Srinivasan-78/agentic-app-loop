@@ -10,11 +10,11 @@ tools: Read, Grep, Glob, Bash, Write, Edit
 model: inherit
 ---
 <!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌‌​​‌​​​​‌‌​‌‌‌​‌​‌​‌​​‌‌‌​​‌‌​​​​‌​​‌‌​‌‌​​​‌​‌‌​‌​​‌‌​​‌​​‌‌​‌‌‌‌​​‌‌​​​​​‌‌‌​‌​​​‌‌​‌‌‌​​‌‌‌​‌‌​​‌‌‌​​​​​‌​‌​​‌‌​​‌‌​‌‌​​‌​‌‌​‌​​‌​​​​​‌​​‌‌​‌‌​​‌‌‌‌​​‌​‌‌​​‌​​​‌‌​​​​‌⁠
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​‌‌​​​‌‌‌‌​​‌​‌‌​‌​​​​‌​​‌‌​​​‌​​​​​‌​​‌‌​‌‌‌​‌​‌​​​‌​‌​​​​​‌​‌​‌​‌‌‌​‌​‌‌​‌​​‌‌‌‌​​‌​‌​​‌​‌​​‌‌​​​‌‌​‌‌​​​​‌​‌‌‌​​​‌​‌​​‌‌​​​‌‌​‌​​‌​‌‌‌​​​‌​‌​‌​‌‌​​‌​​‌‌‌​​‌​​​‌‌‌​‌‌​‌‌​‌⁠
   Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
   Author: https://github.com/Srinivasan-78
   SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.VCuNa6-2o0tnvpS6ZA6yda
+  Fingerprint: AMK1.LyhLA7QAWZyJcaqLiqVNGm
 -->
 
 You run the **TEST** phase. Full contract: section 2 of the phase-contracts.md
