@@ -42,6 +42,6 @@ jobs:
         if: ${{ secrets.AUTHORMARK_KEY != '' }}
         uses: Srinivasan-78/authormark-watch@a9ec3a6a6a1047eca6fd2bada07ec27643ed632e  # main
         with:
-          mode: check
+          mode: check-presence
           path: .
           key: ${{ secrets.AUTHORMARK_KEY }}
