@@ -79,8 +79,7 @@ function log(msg) {
  * the pinned repo into a temp dir as a fallback.
  */
 function sourceRoot() {
-  const here = path.dirname(fileURLToPath(import.meta.url));
-  const local = path.resolve(here, '..');
+  const local = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   if (fs.existsSync(path.join(local, 'skills', 'build-app', 'SKILL.md'))) return local;
 
   log(`• payload not found locally, cloning ${REPO_URL} …`);
@@ -89,23 +88,14 @@ function sourceRoot() {
   return tmp;
 }
 
-function copyDir(src, dest) {
-  if (!DRY) fs.mkdirSync(dest, { recursive: true });
-  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
-    const s = path.join(src, entry.name);
-    const d = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copyDir(s, d);
-    } else {
-      copyFile(s, d);
-    }
-  }
-}
-
 let copied = 0;
 let skipped = 0;
 
-function copyFile(src, dest) {
+function copy(src, dest) {
+  if (fs.statSync(src).isDirectory()) {
+    for (const entry of fs.readdirSync(src)) copy(path.join(src, entry), path.join(dest, entry));
+    return;
+  }
   const rel = path.relative(TARGET, dest);
   if (fs.existsSync(dest) && !FORCE) {
     log(`  \x1b[33mskip\x1b[0m ${rel} (exists — pass --force to overwrite)`);
@@ -128,20 +118,10 @@ const TARGET = path.join(targetRoot(), '.claude');
 
 log(`\n${REPO} → ${TARGET}${DRY ? '  (dry run)' : ''}\n`);
 
-// 1. the skill (whole directory tree, incl. references/ and templates/)
-copyDir(path.join(SRC, 'skills', 'build-app'), path.join(TARGET, 'skills', 'build-app'));
-
-// 2. the 7 phase subagents
-const agentsSrc = path.join(SRC, 'agents');
-for (const f of fs.readdirSync(agentsSrc)) {
-  if (f.endsWith('.md')) copyFile(path.join(agentsSrc, f), path.join(TARGET, 'agents', f));
-}
-
-// 3. the slash command
-copyFile(
-  path.join(SRC, 'commands', 'build-app.md'),
-  path.join(TARGET, 'commands', 'build-app.md'),
-);
+// Copy skill, agents, and slash command
+copy(path.join(SRC, 'skills', 'build-app'), path.join(TARGET, 'skills', 'build-app'));
+copy(path.join(SRC, 'agents'), path.join(TARGET, 'agents'));
+copy(path.join(SRC, 'commands', 'build-app.md'), path.join(TARGET, 'commands', 'build-app.md'));
 
 log(`\n${DRY ? 'Would copy' : 'Copied'} ${copied} file(s), skipped ${skipped}.`);
 
