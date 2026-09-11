@@ -21,18 +21,10 @@ jobs:
         with:
           node-version: '20'
 
-      # Presence check needs no secret. Full fingerprint verification runs only
-      # when the HMAC key is available as a repo secret.
+      # Presence check needs no secret. Full fingerprint verification runs in
+      # the provenance workflow's verify-authorship job on push to main.
       - name: AuthorMark — presence check
         uses: Srinivasan-78/authormark-watch@a9ec3a6a6a1047eca6fd2bada07ec27643ed632e  # main
         with:
           mode: check-presence
           path: .
-
-      - name: AuthorMark — fingerprint verify
-        if: ${{ secrets.AUTHORMARK_KEY != '' }}
-        uses: Srinivasan-78/authormark-watch@a9ec3a6a6a1047eca6fd2bada07ec27643ed632e  # main
-        with:
-          mode: check-presence
-          path: .
-          key: ${{ secrets.AUTHORMARK_KEY }}
