@@ -6,6 +6,7 @@
   "license": "MIT",
   "keyFile": "~/.authormark.key",
   "ignore": [
-    "skills/build-app/templates/BUILD_STATE.md"
+    "skills/build-app/templates/BUILD_STATE.md",
+    "REUSE.toml"
   ]
 }
