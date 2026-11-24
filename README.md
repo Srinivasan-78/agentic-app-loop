@@ -549,7 +549,19 @@ writes several log lines per response and counting them all inflates a session
 
 ---
 
-## 10. The 14 miser skills
+## 10. The 15 skills
+
+### Playwright Integration
+
+| Skill | Purpose | Use for |
+|---|---|---|
+| `penny-playwright` | **Browser automation** | Playwright setup, testing patterns, 7 production examples |
+
+Seven working examples cover: basic navigation, form submission, web scraping, API
+interception, mobile testing, visual regression, and performance metrics. Copy any
+example to your project and customize. Use `/penny-playwright help` to get started.
+
+### The 14 miser skills
 
 Model-invoked — you rarely type these; the agent reaches for them. This is the
 [tokenmiser](https://github.com/Srinivasan-78/tokenmiser) toolkit, vendored in.
@@ -584,12 +596,26 @@ Model-invoked — you rarely type these; the agent reaches for them. This is the
 /plugin install pennywright
 ```
 
-That is it for the skills, agents and commands. Then, in order:
+That is it for the skills, agents and commands. This includes Playwright. Then, in order:
 
 ```
-/penny-setup      # settings.json tiers, the filter hook, context diet, MCP prune
+/penny-setup      # settings.json tiers, the filter hook, context diet, MCP prune, Playwright
 /penny-doctor     # confirm it took
 ```
+
+### Playwright Setup
+
+The plugin includes complete Playwright integration with 7 production examples:
+
+```bash
+npm install -D @playwright/test
+npx playwright install
+
+# Then ask Claude Code:
+# "Write a Playwright test for [your scenario]"
+```
+
+See `skills/penny-playwright/PLUGIN_SETUP.md` for detailed Playwright instructions.
 
 `/penny-setup` detects which runtimes you have, proposes **every** file write as
 a diff first, backs up before writing, and merges into existing config rather
