@@ -38,3 +38,20 @@ Started: <ISO date>
   subagent's report.
 - If the file passes ~1500 lines, older `### Iteration` blocks may be collapsed
   to their summary line by the orchestrator.
+
+## Committing it
+
+Default to **committing it** alongside the work. It is the audit trail for the
+run: what was decided and why, what REVIEW caught, what VERIFY proved, and where
+the loop thrashed. That is the one record a diff cannot reconstruct afterwards.
+
+Two cases where you would not:
+
+- The repo is shared and the team has not agreed to it. Ask rather than adding a
+  1500-line file to someone else's history.
+- A `spike`, where the run was throwaway by definition.
+
+If it is not committed, add `BUILD_STATE.md` to `.gitignore` so it does not
+appear as an untracked file in every later diff and get committed by accident.
+Either way, decide once at Step 0 and say which you chose — a file that is
+sometimes committed and sometimes not is worse than either.

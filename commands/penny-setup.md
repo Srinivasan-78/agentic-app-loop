@@ -12,7 +12,8 @@ Rules for this run:
 - Detect which runtimes are present rather than asking, and configure each one
   that is. If an argument named `claude`, `codex`, or `both`, honour it.
 - `--project` means repo scope (`.claude/`, `.codex/`); otherwise machine scope.
-- Read `references/model-policy.md` before writing any model or effort value.
+- Read `skills/penny-kit/references/model-policy.md` before writing any model or
+  effort value.
   Do not reproduce those values from memory.
 - Measure first (§1.0) and save a `pre` baseline, so the change can be judged
   later.

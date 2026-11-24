@@ -3,7 +3,7 @@ description: Verify the agent kit — tiers, hook wiring, context health. Read-o
 ---
 
 Invoke the `penny-kit` skill and run its **Doctor** section (§2), following
-`references/doctor-checks.md`.
+`skills/penny-kit/references/doctor-checks.md`.
 
 Read-only. Do not fix anything — report, and offer `/penny-setup` for what is
 wrong.

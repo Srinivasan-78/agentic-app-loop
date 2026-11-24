@@ -7,15 +7,23 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Local Claude state & artifacts
+# Local agent state. `.claude-plugin/` is this plugin's manifest — keep it.
 .claude/
+.codex/
+.agents/
 !.claude-plugin/
 
-# Node (if examples are added later)
-node_modules/
+# Pennywright run artifacts, for when the workflows are exercised inside this
+# repo. In a real project these are worth committing as the audit trail; here
+# they are noise.
+BUILD_STATE.md
+.penny/
+.council/
 
-# Master Bot hygiene additions
+# Python bytecode from running hooks/filter-tool-output.py
 __pycache__/
 *.py[cod]
+
+# Secrets
 .env
 .env.local

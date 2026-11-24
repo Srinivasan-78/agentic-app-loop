@@ -53,7 +53,7 @@ setting the user cannot fix.
 | B8 | `CLAUDE_CODE_GOAL_CHECKIN_MINUTES` | `0` |
 | B9 | `MAX_THINKING_TOKENS` | **absent.** If present, warn: it is ignored on adaptive-reasoning models, so it reads as a cap while doing nothing. Offer removal. |
 | B10 | Agents present | 14 in `agents/`, each with `model:` and a `tools:` allowlist |
-| B11 | Skills present | 19 (`penny`, `penny-build`, `penny-council`, `penny-kit`, 15 `miser-*`) |
+| B11 | Skills present | 18 (`penny`, `penny-build`, `penny-council`, `penny-kit`, 14 `miser-*`) |
 | B12 | Hook selftest | `python3 ~/.claude/hooks/filter-tool-output.py --selftest` exits 0 |
 
 B1 and B2 are *defaults for new sessions*. Report them as configured defaults,
@@ -73,7 +73,7 @@ overridden them on purpose.
 | C5 | `[agents] default_subagent_model` + `default_subagent_reasoning_effort` | both set |
 | C6 | `~/.codex/agents/*.toml` | 14 files, each with `name`, `description`, `developer_instructions`, `model`, `model_reasoning_effort` |
 | C7 | `AGENTS.md` | present, and under `project_doc_max_bytes` |
-| C8 | `~/.agents/skills/miser-*` | 15 directories |
+| C8 | `~/.agents/skills/miser-*` | 14 directories |
 
 C7 is worth measuring, not eyeballing: `wc -c AGENTS.md` against the configured
 `project_doc_max_bytes`. Over the limit it is silently truncated mid-file, and

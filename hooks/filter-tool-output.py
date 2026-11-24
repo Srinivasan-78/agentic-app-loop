@@ -5,7 +5,9 @@ A hook runs outside the model, so anything it filters is never paid for. A 10,00
 test log becomes ~100 lines of failures; the exit status is preserved and reported, so a
 filtered command can never look like it passed when it did not.
 
-Install:   see skills/miser-hooks/SKILL.md, or `npx tokenmiser install --hook`
+Install:   copy to ~/.claude/hooks/, then add the PreToolUse/Bash entry to
+           settings.json -- copying alone does nothing. See
+           skills/miser-hooks/SKILL.md or skills/penny-kit/references/claude-setup.md
 Selftest:  python3 filter-tool-output.py --selftest
 Disable:   export TOKENMISER_FILTER_OFF=1
 Extend:    ~/.claude/tokenmiser-filter.json  ->  {"rules": [["^my-runner\\b", "{cmd} 2>&1 | tail -40"]]}

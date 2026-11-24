@@ -129,6 +129,21 @@ Three rules on deciding:
   flexibility vs. simplicity — that is the user's call, not yours. Present the
   split and ask.
 
+### Housekeeping
+
+The chair owns `COUNCIL.md`'s header and `## Log`. Keep both current as you go —
+it is two short writes, and it is the only thing that makes an interrupted
+council resumable rather than a restart:
+
+- `Status:` → `FRAMING` → `ROUND1` → `ROUND2` → `REFEREE` → `DECIDED`
+- `Round:` → `0` → `1` → `2`
+- `## Log` → one line per transition, and one line for anything you *skipped*
+  (a unanimous round 1, an abstaining mandate, a member that blew its cap).
+
+The skipped lines are the valuable ones. A decision record that does not say
+round 2 was skipped reads as though five mandates argued it out when they did
+not.
+
 ### Step 6 — report
 
 Short. The decision, the two or three reasons, the accepted risk, and a pointer

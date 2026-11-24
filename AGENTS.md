@@ -12,7 +12,7 @@ changes what "correct" means, so read this before editing.
 | `skills/penny-build/` | the 7-phase build loop + phase contracts |
 | `skills/penny-council/` | the five mandates + the council protocol |
 | `skills/penny-kit/` | setup, doctor, and the model policy |
-| `skills/miser-*/` | 15 token skills, vendored from tokenmiser |
+| `skills/miser-*/` | 14 token skills, vendored from tokenmiser |
 | `agents/` | 14 Claude subagent definitions |
 | `codex/agents/` | the same 14, mirrored as Codex `.toml` |
 | `commands/` | 7 slash commands |
@@ -61,7 +61,7 @@ The product is prose that another model has to act on, so:
 - **Keep the caps numeric.** Word caps, turn caps, line caps. "Be concise" is not
   a cap.
 - **Be honest about cost in the user-facing text.** A council is ~11 agent runs.
-  19 skills cost ~1.9k tokens every session. `hide_agent_reasoning` saves no
+  18 skills cost ~1.8k tokens every session. `hide_agent_reasoning` saves no
   tokens. If a lever does not pay on a small repo, say so. Overselling this kit
   is the one failure the tests cannot catch.
 - **Verify platform facts before writing them down.** Model names, config keys,
@@ -99,6 +99,14 @@ subagent spawns anyway and runs with no contract at all.
 `skills/miser-*`, `scripts/`, `hooks/` and `reference/` come from
 [tokenmiser](https://github.com/Srinivasan-78/tokenmiser). Fix bugs upstream and
 re-vendor where practical, so the standalone product and this bundle do not
-diverge. Where this repo intentionally differs from upstream — for example
-dropping the stale `MAX_THINKING_TOKENS` advice, which adaptive-reasoning models
-ignore — keep the reason in the text so it is not "corrected" back.
+diverge. Where this repo intentionally differs from upstream, keep the reason in
+the text so it is not "corrected" back. The two deliberate divergences:
+
+- **The stale `MAX_THINKING_TOKENS` advice is dropped.** Adaptive-reasoning
+  models ignore the number, so setting it reads as a working budget cap while
+  capping nothing. Effort is the control.
+- **`miser-setup` is not vendored.** It duplicated `penny-kit`'s setup step for
+  step, knew nothing about the subagent tier env vars, and still recommended
+  `MAX_THINKING_TOKENS: 8000` — a setting `/penny-doctor` flags as a warning, so
+  the kit would have installed something its own doctor complains about. Do not
+  re-add it; extend `skills/penny-kit/references/claude-setup.md` instead.

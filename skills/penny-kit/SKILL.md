@@ -181,6 +181,7 @@ back when it hits a genuinely open choice.
 |---------|------|
 | `/penny-setup` | install and configure everything (§1) |
 | `/penny-doctor` | verify it, read-only (§2) |
+| `/penny-help` | this index |
 | `/penny-scout <question>` | one bounded cheap exploration; the answer, not the file dump |
 
 ### The token skills
@@ -217,7 +218,7 @@ know what exists:
 ### What this kit costs
 
 Each installed skill advertises its name and description every session (~100
-tokens). 19 skills ≈ 1.9k tokens standing cost. The 14 agents cost nothing until
+tokens). 18 skills ≈ 1.8k tokens standing cost. The 14 agents cost nothing until
 spawned. If you never fire a skill, delete its directory — the technique catalog
 in `reference/techniques.md` stays readable either way.
 

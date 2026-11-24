@@ -30,7 +30,7 @@ Lane: BUILD — criteria recoverable. Running the loop.
 7. [The scout](#7-the-scout)
 8. [Model and effort policy](#8-model-and-effort-policy)
 9. [Where the token savings come from](#9-where-the-token-savings-come-from)
-10. [The 15 miser skills](#10-the-15-miser-skills)
+10. [The 14 miser skills](#10-the-14-miser-skills)
 11. [Install](#11-install)
 12. [Configuration reference](#12-configuration-reference)
 13. [Codex differences](#13-codex-differences)
@@ -110,7 +110,7 @@ skills/
   penny-build/         the 7-phase loop + phase contracts + state schema
   penny-council/       the five mandates + the council protocol
   penny-kit/           setup, doctor, help, and the model policy
-  miser-*/             15 token skills
+  miser-*/             14 token skills
 
 scripts/               context-report.sh, miser-bench.mjs, rates.json
 hooks/                 filter-tool-output.py
@@ -120,7 +120,7 @@ reference/             techniques.md — the catalog behind the miser skills
 ### How each kind of file is used
 
 **`skills/*/SKILL.md`** — the frontmatter `name` and `description` are loaded
-into context **every session** (~100 tokens each; 19 skills ≈ 1.9k standing
+into context **every session** (~100 tokens each; 18 skills ≈ 1.8k standing
 cost). The *body* loads only when the skill actually fires. That asymmetry is
 the whole economics of skills: cheap to have, you pay on use. It is also why
 every description in this repo lists trigger phrases — a description that does
@@ -247,7 +247,7 @@ never writes feature code — it runs the loop and enforces the gates.
 
 ### How a phase actually runs
 
-1. The orchestrator copies `templates/BUILD_STATE.md` to your repo root and fills
+1. The orchestrator copies `skills/penny-build/templates/BUILD_STATE.md` to your repo root and fills
    the header: `Status`, `Iteration: 1`, the scenario, and
    **`Baseline: <git rev-parse HEAD>`**. That sha is recorded up front because it
    is the only thing REVIEW and VERIFY can diff against later — if it is not
@@ -548,7 +548,7 @@ writes several log lines per response and counting them all inflates a session
 
 ---
 
-## 10. The 15 miser skills
+## 10. The 14 miser skills
 
 Model-invoked — you rarely type these; the agent reaches for them. This is the
 [tokenmiser](https://github.com/Srinivasan-78/tokenmiser) toolkit, vendored in.
@@ -780,8 +780,8 @@ likely cause of the last miss) — those see live state the scripts cannot.
 
 ## 15. Honest limitations
 
-- **The kit is not free.** 19 skills advertise their descriptions every session,
-  roughly 1.9k tokens of standing cost. On a small repo with quiet tests it may
+- **The kit is not free.** 18 skills advertise their descriptions every session,
+  roughly 1.8k tokens of standing cost. On a small repo with quiet tests it may
   not pay for itself. `miser-bench` is how you find out instead of assuming.
   Delete any skill directory you never fire.
 - **A council spends more tokens than deciding yourself.** ~11 agent runs. What

@@ -27,7 +27,7 @@ export AGENT_KIT="/path/to/pennywright"
 
 | Skill | Lever | Run it when |
 |-------|-------|-------------|
-| `/miser-setup` | install everything | first time, or on a new machine/repo |
+| `/penny-setup` | install everything | first time, or on a new machine/repo |
 | `/miser-audit` | diagnose | "why is my context so big" |
 | `/miser-bench` | measure | before and after any change |
 | `/miser-speak` | output tokens | always on; terse responses |
@@ -46,7 +46,7 @@ export AGENT_KIT="/path/to/pennywright"
 
 1. `/miser-bench baseline` — know the number.
 2. `/miser-audit` — find the fattest sink.
-3. `/miser-setup` — hook, env, CLAUDE.md diet, MCP prune.
+3. `/penny-setup` — hook, env, CLAUDE.md diet, MCP prune.
 4. `/miser-speak full` — output side.
 5. Habits: `/miser-session`, `/miser-read`, `/miser-prompt`.
 6. `/miser-bench compare` — prove it.
