@@ -115,6 +115,7 @@ skills/
 scripts/               context-report.sh, miser-bench.mjs, rates.json
 hooks/                 filter-tool-output.py
 reference/             techniques.md — the catalog behind the miser skills
+tools/                 audit.mjs — the maintainer consistency check
 ```
 
 ### How each kind of file is used
@@ -851,9 +852,17 @@ rules run after the built-ins.
 
 ### Before you commit
 
-`AGENTS.md` has the five manual checks: skill names matching directories, agents
-pinned, Codex pins paired, no dangling reference paths, counts consistent. A
-reference path that does not resolve is the worst failure in the design — the
+```bash
+node tools/audit.mjs
+```
+
+No dependencies, exits non-zero on a problem. It checks skill frontmatter, the
+model policy (including that no subagent is on Opus), agent bounds, Codex pin
+pairing and TOML structure, tier agreement between the README and the policy
+file, dangling references and links, index completeness, documented counts, and
+stale identifiers. `AGENTS.md` lists the full set.
+
+A reference path that does not resolve is the worst failure in this design — the
 subagent spawns anyway and runs with no contract at all.
 
 ---
