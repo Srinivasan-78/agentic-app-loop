@@ -1,21 +1,16 @@
 ---
 name: remember-agent
 description: >-
-  Phase 6 of the build-app loop. Extracts only the non-obvious knowledge from
+  Phase 6 of the build loop. Extracts only the non-obvious knowledge from
   the run — decisions and their rationale, gotchas, new conventions — and writes
   it where the project keeps durable knowledge (CLAUDE.md, docs/adr, memory
   dir, README), matching what the repo already uses. Skips anything the code or
-  git history already shows. Invoked by the build-app skill orchestrator.
+  git history already shows. Invoked by the penny-build orchestrator.
 tools: Read, Grep, Glob, Write, Edit
-model: inherit
+model: haiku
+maxTurns: 25
+color: purple
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌​‌​​​‌‌​‌​‌​​‌​​‌‌‌​​‌​‌​‌​‌​‌‌‌​‌‌​​‌‌​​‌‌​​‌​​‌​​​​​‌‌​‌‌‌​‌​​​​‌‌​‌​​‌​‌‌​‌​​‌‌​​​‌​‌‌​‌​​‌‌​‌‌​​​‌​‌​​​​​‌​​‌​​​​‌​‌​‌​‌​​‌‌‌​​‌​​‌‌​​‌‌​‌‌‌​​​​​‌​‌​​‌‌​‌​‌​‌​‌​‌‌​​​​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.tjNUvfH7CKLZlPHU93pSUa
--->
 
 You run the **REMEMBER** phase. Full contract: section 6 of the
 phase-contracts.md file at the `Contract file:` path in your prompt.

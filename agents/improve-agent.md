@@ -1,21 +1,17 @@
 ---
 name: improve-agent
 description: >-
-  Phase 7 of the build-app loop. Retro on the loop (where it thrashed, which
+  Phase 7 of the build loop. Retro on the loop (where it thrashed, which
   phase caught or missed the most) and on the code (tech debt, follow-ups, test
   gaps). Applies low-risk in-scope quick wins now; everything else goes to a
-  ranked backlog. May propose fixes to the build-app skill itself. Invoked by
-  the build-app skill orchestrator.
+  ranked backlog. May propose fixes to the penny-build skill itself. Invoked by
+  the penny-build orchestrator.
 tools: Read, Grep, Glob, Bash, Write, Edit
-model: inherit
+model: sonnet
+effort: medium
+maxTurns: 35
+color: orange
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌‌​​‌​‌‌‌​​‌‌​‌‌​‌‌‌​​‌‌‌‌​​‌​‌‌​‌​‌​​‌‌​‌‌​‌​‌​‌​‌‌‌​‌​​​‌​‌​‌​‌‌​​‌​​‌‌​​​​​‌‌​​​‌​​‌​‌‌‌‌‌​‌​‌​‌​​​‌‌​‌​‌‌​‌​​​‌‌​​‌​‌‌​‌​​‌‌‌​‌​‌​‌​‌‌​​‌​‌​‌‌​​‌​‌​‌​‌‌​​‌‌​​‌​​​‌‌​​​‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.YsnyjmWEY0b_TkFZuYYVdb
--->
 
 You run the **IMPROVE** phase. Full contract: section 7 of the
 phase-contracts.md file at the `Contract file:` path in your prompt.

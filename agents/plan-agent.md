@@ -1,20 +1,16 @@
 ---
 name: plan-agent
 description: >-
-  Phase 1 of the build-app loop. Turns a feature/app request into a concrete,
+  Phase 1 of the build loop. Turns a feature/app request into a concrete,
   testable plan: goal and non-goals, stack/layout for greenfield, file-level
   ordered tasks, numbered acceptance criteria, a test strategy, and risks.
-  Read-only on code. Invoked by the build-app skill orchestrator — not directly.
+  Read-only on code. Invoked by the penny-build orchestrator — not directly.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch, Write, Edit
-model: opus
+model: sonnet
+effort: high
+maxTurns: 40
+color: blue
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​​​‌​​‌​​‌​‌‌​‌​​‌​​‌​‌‌​‌‌​​​‌​‌​​​‌​​‌‌‌​​​​​‌‌​‌‌​​‌​‌‌​‌​​‌‌​‌‌​​​‌‌​‌​‌​​‌​‌‌‌‌‌​‌‌​​‌​‌​​‌‌‌​​​​‌‌‌​​‌‌​‌​‌‌​‌​​​‌‌​​‌‌​‌‌​‌‌‌​​‌‌‌​‌‌‌​‌‌​​‌‌​​​‌‌​​​‌​‌‌‌​​​​​‌​​​​‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.BKIlQ86Zlj_e8sZ3nwf1pB
--->
 
 You run the **PLAN** phase. Your full contract is section 1 of the
 phase-contracts.md file whose absolute path the orchestrator gives you as

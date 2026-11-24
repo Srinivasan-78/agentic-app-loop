@@ -1,0 +1,86 @@
+# pennywright — Codex configuration
+#
+# Merge the blocks you want into ~/.codex/config.toml (machine-wide) or
+# .codex/config.toml (this repo only). Do not copy this file over an existing
+# config — it will discard everything else in it.
+#
+# Codex loads a repo-scoped .codex/config.toml only for a trusted project, and
+# ignores model_provider / model_providers / profile / profiles / notify /
+# telemetry keys there. Those belong in user-level config.
+#
+# Verify the model names against what your plan actually serves before using
+# them. `/penny-doctor` reads back what is configured rather than assuming these
+# strings are available to you.
+
+# ---------------------------------------------------------------- orchestrator
+# The parent session. This is the one place the expensive tier earns its price:
+# it frames every brief and makes every call.
+model = "gpt-6.2-sol"
+model_reasoning_effort = "xhigh"
+
+# Display only — reasoning still happens and is still billed. This buys a
+# readable transcript, not tokens. Drop it if you want to watch the reasoning.
+hide_agent_reasoning = true
+
+# Hard ceiling on AGENTS.md bytes pulled into turn one. The real fix is a short
+# AGENTS.md; this is the backstop. Over the limit, the file is silently
+# truncated mid-content — whatever was at the bottom never loads.
+project_doc_max_bytes = 8192
+
+# ---------------------------------------------------------------- subagents
+[agents]
+enabled = true
+
+# The council runs 5 members plus a referee. 6 is the ceiling this kit needs.
+# Older configs may use the legacy alias `max_threads`.
+max_concurrent_threads_per_session = 6
+
+# Fleet defaults. An agent file's own values beat these, which is why every file
+# in codex/agents/ sets both of its own — see the half-pin trap below.
+default_subagent_model = "gpt-6.2-sol"
+default_subagent_reasoning_effort = "medium"
+
+# Keep the model-visible interruption message. Without it, an interrupted agent
+# resumes with no idea it was interrupted.
+interrupt_message = true
+
+# ---------------------------------------------------------------- optional
+# Long-session compaction. Offer these when sessions actually run long; they are
+# not useful by default.
+#
+# body_after_prefix counts only growth past the carried compaction prefix rather
+# than the full active context, so compaction fires on what actually grew.
+#
+# model_auto_compact_token_limit_scope = "body_after_prefix"
+# model_post_turn_compact_threshold_percent = 80
+
+# ---------------------------------------------------------------- notes
+#
+# THE HALF-PIN TRAP
+#   Codex resolves model and reasoning effort independently, first match wins:
+#     1. explicit value in the spawn request
+#     2. the agent's own .toml
+#     3. the [agents] default above
+#     4. the parent session's value
+#   An agent file that sets only `model` keeps the effort from step 3 or 4 — so a
+#   cheap-model agent can silently inherit the parent's xhigh and stop being
+#   cheap. Set both, or neither.
+#
+# WHAT AN AGENT FILE CANNOT OVERRIDE
+#   sandbox_mode, approval_policy, model_provider, and mcp_servers always come
+#   from the parent session. A "read-only" agent is read-only because its
+#   developer_instructions say so — there is no separate read-only sandbox, so
+#   never treat an agent file as a security boundary. Set the permission mode on
+#   the parent turn before asking for delegation; subagents inherit it.
+#
+# EFFORT IS NOT COMPARABLE ACROSS MODELS
+#   gpt-6-luna on "high" is the cheap tier. OpenAI's guidance is to start Luna
+#   at high because its lower levels are weaker than Sol's. Read the
+#   model+effort pair, never the word alone.
+#
+# MCP
+#   Configure servers here, on the parent, or subagents cannot reach them:
+#
+# [mcp_servers.example]
+# url = "http://localhost:3000/mcp"
+# startup_timeout_sec = 20

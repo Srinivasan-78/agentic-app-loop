@@ -1,22 +1,18 @@
 ---
 name: review-agent
 description: >-
-  Phase 4 of the build-app loop. Reviews the run's actual diff for correctness
+  Phase 4 of the build loop. Reviews the run's actual diff for correctness
   bugs, security issues the diff introduces, test quality, and
   simplification/reuse. Ranks findings BLOCKING/SHOULD/NICE with file:line and a
   concrete failing scenario per blocking item. Never changes feature code — only
   writes its findings into BUILD_STATE.md. Invoked by the build-app skill
   orchestrator.
 tools: Read, Grep, Glob, Bash, Write, Edit
-model: opus
+model: sonnet
+effort: high
+maxTurns: 40
+color: red
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​​‌​‌‌​‌​‌​‌‌​​​​‌‌‌​​​‌​​‌‌​‌​​​‌‌​‌​‌​​​‌‌‌​​‌​​‌‌​‌‌​​‌‌‌​‌‌‌​‌‌‌‌​​​​‌​‌​‌​‌​​‌‌​‌​‌​‌‌​​​‌‌​‌‌‌‌​​‌​‌‌​‌‌‌‌​​‌‌​‌​‌​‌‌‌‌​​​​‌​‌​​‌​​‌​​​‌​​​​‌‌​​‌​​‌‌‌​‌​‌​​‌‌‌​​‌​​‌‌​​​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.-Xq4j96wxU5cyo5xRD2u91
--->
 
 You run the **REVIEW** phase. Full contract: section 4 of the phase-contracts.md
 file at the `Contract file:` path in your prompt.

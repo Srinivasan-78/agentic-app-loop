@@ -1,5 +1,5 @@
-# Normalise line endings: the AuthorMark fingerprint canonicaliser assumes LF in
-# the repo regardless of the checkout platform.
+# Normalise line endings to LF in the repo regardless of the checkout platform,
+# so the shell scripts and the Python hook stay runnable on every machine.
 * text=auto eol=lf
 *.png binary
 *.jpg binary

@@ -1,7 +1,7 @@
 {
-  "name": "agentic-app-loop",
-  "description": "Build and extend real apps through a 7-phase loop — PLAN, TEST, IMPLEMENT, REVIEW, VERIFY, REMEMBER, IMPROVE — each phase run by its own bounded subagent.",
-  "version": "0.1.0",
+  "name": "pennywright",
+  "description": "The utility belt for coding agents. One front door that sharpens any request and routes it: a 7-phase build loop, a 5-member council for contested decisions, bounded scouts, and the tokenmiser savings toolkit — with an Opus/xhigh orchestrator driving Haiku/Sonnet subagents. Mirrors onto Codex.",
+  "version": "1.0.0",
   "author": { "name": "Srinivasan Vijayaraghavan", "email": "srinivasan.shyam2000@gmail.com", "url": "https://github.com/Srinivasan-78" },
-  "keywords": ["agents", "workflow", "tdd", "orchestration", "code-review"]
+  "keywords": ["agents", "orchestration", "subagents", "workflow", "tdd", "code-review", "tokens", "cost", "context", "codex"]
 }

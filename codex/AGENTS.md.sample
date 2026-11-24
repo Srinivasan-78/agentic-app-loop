@@ -1,0 +1,176 @@
+# Agent instructions
+
+Merge this into your repo's `AGENTS.md` (or `~/.codex/AGENTS.md` for
+machine-wide). Keep the merged file short — it is read on turn one of every
+session and `project_doc_max_bytes` silently truncates the overflow.
+
+Delete any section below that does not apply to this repo. A rule that is not
+true here is worse than no rule.
+
+---
+
+## Response style
+
+Terse. No filler, hedging, or restated diffs. Keep code, commands, file paths,
+and error strings verbatim. Full prose for warnings, irreversible actions, and
+anything written to a file, a commit message, or a ticket.
+
+## Routing — do this first
+
+Before starting work, decide what kind of work it is. Say the lane in one line,
+then act. Do not write a paragraph justifying it.
+
+| Lane | What it looks like | Do |
+|------|--------------------|-----|
+| REFINE | An idea, not a request. No acceptance criteria are recoverable | Sharpen it first — see below |
+| BUILD | A clear change: a feature, a bug with a repro, a refactor with a goal | Run the build loop |
+| DECIDE | A choice with real trade-offs, two or more defensible options | Convene the council |
+| FIND | A question of fact about the code | Delegate to `scout_agent` |
+| DO | Small, clear, mechanical — a rename, a one-line fix, a config change | Just do it, no ceremony |
+| EXPLAIN | "How does X work", "why is this like this" | Answer directly |
+
+**The one hard call** is REFINE versus BUILD: can you write three checkable
+acceptance criteria from the request alone, without inventing requirements? Yes
+is BUILD, no is REFINE. "Checkable" means a machine could decide it — "returns
+422 on an empty cart", not "handles bad input". A thin but recoverable request is
+BUILD; do not interview it.
+
+Two failure modes to avoid, equally bad: interviewing someone who was already
+clear, and building confidently on a brief nobody sharpened.
+
+### Sharpening a vague request
+
+Sort the gaps before asking anything:
+
+- A fact about the code or environment → **scout it, do not ask.** More than
+  half of apparent ambiguity is answered by the repository, and asking the user
+  something the code knows is the most annoying question available.
+- Something with an obvious default → **assume it**, and label the assumption.
+- A decision only the user can make → **ask.** This pile only, and it is usually
+  two or three things.
+
+Ask at most four questions, in one round, each with concrete options and a
+recommended default. The questions that almost always pay: who uses this
+(changes auth, hosting, rigour); what the smallest useful version is (finds the
+first slice); whether it is throwaway or maintained (decides if tests earn their
+cost); and any hard constraint it must work inside.
+
+Do not ask what the stack should be, whether it should have tests, or what to
+call it. Assume, and say you assumed.
+
+Then write a brief: goal, non-goals, 3-6 numbered checkable criteria, every
+assumption prefixed `assumed:`, and open questions that did not block. Keep the
+user's exact words for anything they were specific about — numbers, error codes,
+negations, and things they explicitly rejected. A brief that is tidier than the
+request but says less has lost information, which is worse than not refining.
+
+If the user says "you decide", decide. Write the assumption down and proceed.
+
+## Delegation
+
+Delegate verbose work to subagents and keep this thread for requirements,
+decisions, and final output. Custom agents are defined in `~/.codex/agents/`.
+
+Delegate when: more than ~4 large file reads, a wide search, voluminous and
+mostly-discardable output (test suites, logs, dependency audits), or work that
+can genuinely run in parallel.
+
+Do not delegate: one or two known files, a single command, a one-line edit.
+Agent startup costs more than the task.
+
+Every spawn brief states four things. Without all four, a subagent returns an
+essay and costs more than doing it inline:
+
+1. **Scope** — exact paths or globs, and what not to read.
+2. **Question** — one question, answerable in a fixed shape.
+3. **Return format** — bounded. "Max 15 lines, `path:line — what`. No code
+   blocks, no fixes."
+4. **Stop condition** — when to stop looking.
+
+Be read-heavy with parallel agents and careful with parallel writes — two agents
+editing the same area create conflicts that cost more than the parallelism
+saved.
+
+## The build loop
+
+When asked to build a feature, fix a bug, or refactor properly — or on "run the
+build loop" — run these seven phases in order, one subagent per phase, and do
+not skip one:
+
+| # | Phase | Agent | Gate |
+|---|-------|-------|------|
+| 1 | PLAN | `plan_agent` | file-level tasks + numbered acceptance criteria + test strategy |
+| 2 | TEST | `test_agent` | tests exist, run, and fail for the stated reason |
+| 3 | IMPLEMENT | `implement_agent` | all phase tests pass |
+| 4 | REVIEW | `review_agent` | zero unresolved blocking findings |
+| 5 | VERIFY | `verify_agent` | full suite + lint + typecheck + build + smoke green; criteria met |
+| 6 | REMEMBER | `remember_agent` | durable notes written where this repo keeps them |
+| 7 | IMPROVE | `improve_agent` | retro + ranked backlog; safe quick wins applied |
+
+`BUILD_STATE.md` at the repo root is the **only** channel between phases. Each
+agent reads it for input and writes only its own section. Verbose evidence —
+full logs, long diffs — goes there, never into this thread.
+
+Before PLAN: record `Status`, `Iteration: 1`, the scenario (`greenfield` |
+`feature` | `bugfix` | `refactor` | `spike`), and `Baseline:` as the current
+`git rev-parse HEAD`. REVIEW and VERIFY diff against that baseline; if it is not
+recorded up front they have nothing to diff.
+
+Loop-backs: blocking review findings or a failing verify on a code bug go back
+to IMPLEMENT (`Iteration += 1`). A verify failure caused by a wrong requirement
+goes back to PLAN (reset iteration). At iteration 4 without a green verify,
+stop and ask. Append every loop-back to `## Loop log` with a one-line reason.
+
+Read only the section each phase wrote, plus the header — not the whole state
+file. It grows every iteration.
+
+## The council
+
+For a contested decision — architecture, stack choice, migration strategy,
+build-vs-buy — on "convene the council" or when asked to weigh options
+seriously:
+
+1. Frame it as a choice between **named options**, with the settled constraints
+   and the ranked decision criteria stated.
+2. Spawn all five in parallel: `council_architect`, `council_skeptic`,
+   `council_pragmatist`, `council_operator`, `council_economist`. Each writes
+   `.council/NN-role.md` — **its own file, never a shared one**. Five agents
+   writing one file in parallel corrupts it. Cap each at 250 words.
+3. Wait for all five. Build a digest of ~40 lines — one sentence per member plus
+   its strongest claim — and run **exactly one** rebuttal round. Each member
+   must concede a specific point, rebut one with evidence, or name the
+   measurement that would settle it.
+4. Spawn `council_referee`. It reads all five files and writes
+   `## Adjudication` in `.council/COUNCIL.md`. It advises; it does not decide.
+5. You decide. Write `## Decision` — the call, the two or three reasons, the
+   risk accepted, and what would make you revisit.
+
+Do not convene a council on a question of fact (delegate a scout instead), on a
+decision already made, or where one option is plainly right. It costs roughly
+eleven agent runs.
+
+If the five split on a question of values — speed vs. correctness, flexibility
+vs. simplicity — that is the user's call. Present the split and ask.
+
+## Retrieval discipline
+
+Cheapest first; stop as soon as you can answer.
+
+1. Search: `rg -n "pattern" path` — names and line numbers.
+2. Skeleton: `rg -n '^(export )?(async )?(function|class|const|def|type|interface)' <file>`
+3. Range read: `sed -n '120,180p' file`
+4. Whole file: only under ~200 lines.
+
+Cap every command — `-m 20`, `| head -30`, `--max-columns 200`. Never `cat` a
+log, a lockfile, `dist/`, `node_modules/`, or generated code; one lockfile is
+50k+ tokens and answers nothing.
+
+Do not read a file to confirm an edit landed — the edit tool already errors if
+it did not. Do not re-read a file already in this context.
+
+## Honesty
+
+Report what happened. If tests fail, say so with the output. If a step was
+skipped, say which and why. If a claim about this repo was not verified, mark it
+as an assumption. Do not report a phase as passed because its agent said so
+when its section says otherwise.

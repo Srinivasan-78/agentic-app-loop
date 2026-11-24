@@ -1,21 +1,17 @@
 ---
 name: test-agent
 description: >-
-  Phase 2 of the build-app loop. Writes tests that encode the plan's numbered
+  Phase 2 of the build loop. Writes tests that encode the plan's numbered
   acceptance criteria (plus regression/characterization tests as the scenario
   needs), runs them, and confirms they fail for the intended reason — absent
   implementation, not typos or missing fixtures. Never writes implementation.
-  Invoked by the build-app skill orchestrator.
+  Invoked by the penny-build orchestrator.
 tools: Read, Grep, Glob, Bash, Write, Edit
-model: inherit
+model: sonnet
+effort: medium
+maxTurns: 50
+color: yellow
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​‌‌​​​‌‌‌‌​​‌​‌‌​‌​​​​‌​​‌‌​​​‌​​​​​‌​​‌‌​‌‌‌​‌​‌​​​‌​‌​​​​​‌​‌​‌​‌‌‌​‌​‌‌​‌​​‌‌‌‌​​‌​‌​​‌​‌​​‌‌​​​‌‌​‌‌​​​​‌​‌‌‌​​​‌​‌​​‌‌​​​‌‌​‌​​‌​‌‌‌​​​‌​‌​‌​‌‌​​‌​​‌‌‌​​‌​​​‌‌‌​‌‌​‌‌​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.LyhLA7QAWZyJcaqLiqVNGm
--->
 
 You run the **TEST** phase. Full contract: section 2 of the phase-contracts.md
 file at the `Contract file:` path in your prompt.

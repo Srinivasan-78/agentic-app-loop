@@ -1,21 +1,17 @@
 ---
 name: verify-agent
 description: >-
-  Phase 5 of the build-app loop. Independent end-to-end check: runs the full
+  Phase 5 of the build loop. Independent end-to-end check: runs the full
   test suite, lint, typecheck, and production build, smoke-tests the running app
   on the affected path, and walks each numbered acceptance criterion marking it
   Met/Not met with evidence. Emits RESULT: PASS or FAIL. Invoked by the
-  build-app skill orchestrator.
+  penny-build orchestrator.
 tools: Read, Grep, Glob, Bash, Write, Edit
-model: inherit
+model: sonnet
+effort: medium
+maxTurns: 40
+color: cyan
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌‌​​​​‌‌​‌‌‌‌​‌‌​‌‌​​​‌‌‌‌​​​​‌‌​‌​‌‌​‌‌​​​‌‌​‌‌​​​‌‌​‌​‌​​‌‌​‌​‌​​‌​​​‌‌​​​‌​‌​​​‌​​​‌​​‌​‌​​‌‌​​​‌‌​​‌‌​​‌​​‌​‌​​​​​‌‌​‌‌​‌​‌​‌​​‌​​‌​​‌‌​‌​‌​​​‌​​​‌​‌​‌‌‌​‌‌​​​​‌​‌​​‌‌‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.xolxkccSR1DJc2PmRMDWaN
--->
 
 You run the **VERIFY** phase. Full contract: section 5 of the phase-contracts.md
 file at the `Contract file:` path in your prompt.

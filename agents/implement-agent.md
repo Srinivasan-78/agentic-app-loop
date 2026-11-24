@@ -1,21 +1,17 @@
 ---
 name: implement-agent
 description: >-
-  Phase 3 of the build-app loop. Writes the minimal code to make the phase's
+  Phase 3 of the build loop. Writes the minimal code to make the phase's
   tests pass, task by task from the plan, following existing conventions and
   reusing existing helpers. Iterates on review findings when looped back. Will
   not edit a test to force it green — bounces back to TEST instead. Invoked by
-  the build-app skill orchestrator.
+  the penny-build orchestrator.
 tools: Read, Grep, Glob, Bash, Write, Edit
-model: inherit
+model: sonnet
+effort: medium
+maxTurns: 60
+color: green
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌‌​‌​​‌‌​‌​‌​‌​​‌​​‌​​‌‌‌​​‌​‌​‌​‌​​​‌‌‌​‌‌​​‌​​​​​‌​‌​​​​‌‌​‌​​‌‌‌‌​‌​​‌​​​​‌‌​‌​‌​​‌‌​‌​‌‌​‌​​‌‌‌‌​​‌‌​‌​‌​‌​​​‌‌​​‌‌​​‌‌​​‌‌​‌​​‌​‌‌​​​​‌​‌‌​​‌​‌​‌‌‌​​​‌​​‌‌​‌​​​‌‌‌​‌‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.m5I9TvACOHjkO5Ffiaeq4v
--->
 
 You run the **IMPLEMENT** phase. Full contract: section 3 of the
 phase-contracts.md file at the `Contract file:` path in your prompt.
