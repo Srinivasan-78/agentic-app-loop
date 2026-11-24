@@ -1,36 +1,334 @@
 # Pennywright
 
-**The utility belt for coding agents.**
+**The utility belt for coding agents.** One tool, one front door. It reads what you asked for, works out what kind of work it actually is, and hands it to the right tool. No dependencies, no build step, no tests to run.
 
-One front door. It reads what you asked for, works out what kind of work it
-actually is, sharpens it if it is too vague to act on, and hands it to the right
-tool on the belt. An expensive brain plans; cheap hands do the work; the verbose
-middle never reaches your context.
+Works on **Claude Code** and **Codex**, from the same repo.
 
-Works on **Claude Code** and **Codex**, from the same repo. No dependencies, no
-build step, no tests to run — it is prose, frontmatter, and three small scripts.
+---
+
+## ⚡ Quick Start (30 seconds)
+
+### Download & Install
+
+```bash
+# Claude Code (recommended)
+/plugin marketplace add Srinivasan-78/pennywright
+/plugin install pennywright
+/penny-setup              # One-command setup
+/penny-doctor             # Verify it worked
+```
+
+**That's it.** 18 skills + 7 agents + Playwright examples ready to use.
+
+### Your First Command
 
 ```
 /penny  add rate limiting to the orders endpoint
 ```
+
+Returns:
 ```
 Lane: BUILD — criteria recoverable. Running the loop.
 ```
 
 ---
 
-## Contents
+## 📋 All Commands — Quick Reference
+
+### Main Workflows
+
+| Command | Use When | Returns |
+|---------|----------|---------|
+| **`/penny <anything>`** | Unsure what to do | Smart router → BUILD, DECIDE, FIND, TUNE, REFINE, etc. |
+| **`/penny-build <ask>`** | You have clear requirements | 7-phase loop (PLAN → TEST → IMPLEMENT → REVIEW → VERIFY → REMEMBER → IMPROVE) |
+| **`/penny-council <question>`** | Need to decide (trade-off) | 5 agents debate, referee adjudicates |
+| **`/penny-scout <question>`** | Quick lookup (read-only) | Cheap, throwaway answer |
+
+### Setup & Verification
+
+| Command | Purpose |
+|---------|---------|
+| **`/penny-setup`** | First-time setup or reconfigure |
+| **`/penny-doctor`** | Verify installation, diagnose issues |
+| **`/penny-help`** | Show full index of skills |
+| **`/penny-playwright help`** | Playwright setup + 7 examples |
+
+### Token Optimization Skills
+
+Reach for these when Claude Code suggests them, or invoke manually:
+
+| Command | What it Does |
+|---------|--------------|
+| **`/miser-audit`** | Why is my context so big? (ranked prune list) |
+| **`/miser-bench`** | Did that actually save tokens? (measure before/after) |
+| **`/miser-speak lite`** | Terse mode (lite, full, or ultra) |
+| **`/miser-compress`** | Shrink CLAUDE.md / AGENTS.md |
+| **`/miser-session`** | /clear vs /compact, cache TTL, handoffs |
+| **`/miser-read`** | Retrieval discipline (search before read) |
+| **`/miser-tools`** | MCP schema tax (reduce context) |
+| **`/miser-delegate`** | Should I use a subagent? (cost/benefit) |
+| **`/miser-model`** | Model routing & effort levels |
+| **`/miser-prompt`** | Request shape & target optimization |
+| **`/miser-hooks`** | Filter config & hook management |
+| **`/miser-git`** | Terse commits & review comments |
+| **`/miser-api`** | LLM code patterns (caching, batching, RAG) |
+
+---
+
+## 🎯 Choose Your Path
+
+### I want to **BUILD** something
+
+**Clear requirements?**
+```
+/penny-build add email verification to signup flow
+```
+
+**Vague idea?**
+```
+/penny let users export their data
+```
+→ It sharpens it first, then builds.
+
+### I need to **DECIDE** something
+(architecture, stack, migration, build-vs-buy)
+
+```
+/penny-council should we migrate to Postgres or stay on SQLite?
+```
+
+Returns: 5 agents debate, referee adjudicates, you decide.
+
+### I need a **QUICK LOOKUP**
+(code search, fact check, no ceremony)
+
+```
+/penny-scout where is the payment handler?
+```
+
+Returns: Just the answer, 15 lines max.
+
+### I want to **TEST** with Playwright
+
+**Copy examples:**
+```bash
+cp skills/penny-playwright/examples/*.ts tests/
+npx playwright test
+```
+
+**Or ask Claude inline:**
+```
+Write a Playwright test for checkout flow:
+- Navigate to /checkout
+- Fill customer info
+- Submit payment
+- Verify confirmation
+```
+
+Agent generates test code from examples.
+
+See: [`PLAYWRIGHT_QUICKSTART.md`](PLAYWRIGHT_QUICKSTART.md)
+
+### I want to **OPTIMIZE** tokens
+
+1. Check what eats context:
+   ```
+   /miser-audit
+   ```
+
+2. Apply fixes (hook, model tier, context diet):
+   ```
+   /penny-setup
+   ```
+
+3. Measure improvement:
+   ```
+   /miser-bench
+   ```
+
+---
+
+## 📥 Installation Options
+
+### Option 1: Plugin (Recommended)
+
+```bash
+/plugin marketplace add Srinivasan-78/pennywright
+/plugin install pennywright
+```
+
+### Option 2: Manual
+
+```bash
+# Claude Code skills
+cp -r skills/* ~/.claude/skills/
+
+# Agents
+cp agents/*.md ~/.claude/agents/
+
+# Commands
+cp commands/*.md ~/.claude/commands/
+
+# Export the kit location
+export AGENT_KIT="/path/to/pennywright"
+```
+
+Add `AGENT_KIT` to your `~/.bashrc` or `~/.zshrc`.
+
+### Option 3: Codex
+
+```bash
+# Agents
+mkdir -p ~/.codex/agents && cp codex/agents/*.toml ~/.codex/agents/
+
+# Skills
+cp -r skills/miser-* ~/.agents/skills/
+
+# Config & instructions
+cp codex/config.toml.sample ~/.codex/config.toml
+cp codex/AGENTS.md.sample ~/.codex/AGENTS.md
+```
+
+Then run `/penny-setup` to configure.
+
+---
+
+## 🔧 Configuration (One Command)
+
+```
+/penny-setup
+```
+
+Configures:
+- Orchestrator model/effort (Opus/xhigh)
+- Subagent tiers (Sonnet/medium for work, Haiku for simple tasks)
+- Tool-output filter hook (10,000-line logs → 100 lines)
+- Context diet (move heavy sections into skills)
+- MCP optimization (disable unused servers)
+- Permission allowlist (safe tools pre-approved)
+
+Backs up before writing. Safe to re-run.
+
+---
+
+## ✅ Verify It Works
+
+```
+/penny-doctor
+```
+
+Checks:
+- All agents installed and not half-pinned
+- Hook wired and present
+- `$AGENT_KIT` set
+- Model policy enforced (no Opus on subagents)
+- Standing cost (skills advertised every session)
+- Session health (cache share, standing tokens)
+
+---
+
+## 📚 What's Inside
+
+### Skills (18 total)
+
+- **penny** — Front door (classifier & router)
+- **penny-build** — 7-phase BUILD loop
+- **penny-council** — 5-agent council + referee
+- **penny-kit** — Setup, verify, help
+- **penny-playwright** — Browser testing (NEW)
+- **14 miser-\*** — Token optimization toolkit
+
+### Agents (14 total)
+
+Each runs at its tier (Opus/Sonnet/Haiku) with bounded tools and context.
+
+| Phase | Agent | Tier |
+|-------|-------|------|
+| PLAN | plan-agent | Sonnet/high |
+| TEST | test-agent | Sonnet/medium |
+| IMPLEMENT | implement-agent | Sonnet/medium |
+| REVIEW | review-agent | Sonnet/high |
+| VERIFY | verify-agent | Sonnet/medium |
+| REMEMBER | remember-agent | Haiku |
+| IMPROVE | improve-agent | Sonnet/medium |
+| COUNCIL | 5 role agents + referee | Sonnet/high |
+
+### Examples (7 Playwright)
+
+1. **01-basic-navigation.ts** — Click, type, navigate, assert
+2. **02-form-submission.ts** — Login, validation, multi-step
+3. **03-web-scraping.ts** — Extract data, pagination, tables
+4. **04-api-intercept.ts** — Mock APIs, intercept requests
+5. **05-mobile-testing.ts** — Responsive, touch, gestures
+6. **06-visual-regression.ts** — Screenshots, comparisons
+7. **07-performance.ts** — Load times, Core Web Vitals
+
+Copy any to your project and customize.
+
+---
+
+## 🏗️ The Architecture (Simplified)
+
+**Problem:** Agentic work is expensive because everything lands in one context at the same model tier.
+
+**Solution:**
+1. **Isolation** — Subagents run in throwaway contexts, return 3-line reports
+2. **Routing** — Smart classifier sends BUILD work to BUILD agents, DECIDE to COUNCIL, etc.
+3. **Tiering** — Opus for orchestration, Sonnet for judgment, Haiku for simple tasks
+4. **Filtering** — Tool-output hook turns 10k-line logs into 100 lines before they enter context
+
+**Result:** A session that stays fast and cheap because the verbose work never enters the main thread.
+
+---
+
+## 🧮 Cost Model
+
+| What | Standing Cost | Per-Use Cost |
+|-----|---|---|
+| 18 skill descriptions | ~1.8k tokens/session | — |
+| Routing (classify + sharpen) | ~300 tokens | — |
+| BUILD loop phase | — | ~5k tokens (agent context, then discarded) |
+| COUNCIL | — | ~11 agent runs (~50k tokens) |
+| Miser skills | — | On-demand |
+
+**Is it worth it?** Run `/miser-bench` to find out. On a small repo with quiet tests, it may not break even. On a larger project, it pays for itself after the first complex task.
+
+---
+
+## 🔒 Security
+
+- **Tool allowlist** — Each agent has explicit `tools`, cannot call others
+- **No destructive defaults** — `/penny-setup` proposes every write as a diff first
+- **Hook safety** — `hooks/filter-tool-output.py` filters *output* only, never changes which command runs
+- **Spawn depth capped** — No subagent can spawn its own (prevents bill surprises)
+
+Read `hooks/filter-tool-output.py` before installing it. It's 177 lines and worth the 5 minutes.
+
+---
+
+## 📖 Detailed Guides (Technical)
+
+### Understanding the System
 
 1. [The problem this solves](#1-the-problem-this-solves)
 2. [The one distinction that explains everything](#2-the-one-distinction-that-explains-everything)
 3. [What the repo physically contains](#3-what-the-repo-physically-contains)
+
+### Workflows
+
 4. [The front door: seven lanes](#4-the-front-door-seven-lanes)
 5. [The build loop](#5-the-build-loop)
 6. [The council](#6-the-council)
 7. [The scout](#7-the-scout)
+
+### Optimization
+
 8. [Model and effort policy](#8-model-and-effort-policy)
 9. [Where the token savings come from](#9-where-the-token-savings-come-from)
-10. [The 14 miser skills](#10-the-14-miser-skills)
+
+### Reference
+
+10. [The 15 skills](#10-the-15-skills)
 11. [Install](#11-install)
 12. [Configuration reference](#12-configuration-reference)
 13. [Codex differences](#13-codex-differences)
@@ -43,8 +341,7 @@ Lane: BUILD — criteria recoverable. Running the loop.
 
 ## 1. The problem this solves
 
-Two things make agentic coding expensive, and they are really the same thing
-twice.
+Two things make agentic coding expensive, and they are really the same thing twice.
 
 **Everything lands in one context.** Test output, speculative file reads, dead
 ends, a 10,000-line build log. You pay for all of it on *every subsequent turn*,
@@ -110,6 +407,7 @@ skills/
   penny-build/         the 7-phase loop + phase contracts + state schema
   penny-council/       the five mandates + the council protocol
   penny-kit/           setup, doctor, help, and the model policy
+  penny-playwright/    Playwright setup, verification, 7 examples
   miser-*/             14 token skills
 
 scripts/               context-report.sh, miser-bench.mjs, rates.json
@@ -602,20 +900,6 @@ That is it for the skills, agents and commands. This includes Playwright. Then, 
 /penny-setup      # settings.json tiers, the filter hook, context diet, MCP prune, Playwright
 /penny-doctor     # confirm it took
 ```
-
-### Playwright Setup
-
-The plugin includes complete Playwright integration with 7 production examples:
-
-```bash
-npm install -D @playwright/test
-npx playwright install
-
-# Then ask Claude Code:
-# "Write a Playwright test for [your scenario]"
-```
-
-See `skills/penny-playwright/PLUGIN_SETUP.md` for detailed Playwright instructions.
 
 `/penny-setup` detects which runtimes you have, proposes **every** file write as
 a diff first, backs up before writing, and merges into existing config rather
