@@ -1,0 +1,51 @@
+{
+  "name": "@srinivasan-78/tokenmiser",
+  "version": "0.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Token-reduction toolkit for Claude Code: context audit, retrieval discipline, output compression, delegation contracts, model routing, and a measurement harness.",
+  "license": "MIT",
+  "author": "srini",
+  "type": "module",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "bin": {
+    "tokenmiser": "bin/tokenmiser.mjs"
+  },
+  "files": [
+    "assets/",
+    "bin/",
+    "skills/",
+    "scripts/",
+    "hooks/",
+    "reference/",
+    ".claude-plugin/",
+    "install.sh",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.test.mjs"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "tokens",
+    "cost",
+    "context",
+    "llm",
+    "agent",
+    "skills",
+    "caveman"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srinivasan-78/tokenmiser.git"
+  },
+  "homepage": "https://github.com/Srinivasan-78/tokenmiser#readme",
+  "bugs": {
+    "url": "https://github.com/Srinivasan-78/tokenmiser/issues"
+  }
+}

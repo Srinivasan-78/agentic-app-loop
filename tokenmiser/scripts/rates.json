@@ -1,0 +1,9 @@
+{
+  "_comment": "USD per 1,000,000 tokens. Keys are matched as model-id PREFIXES, longest wins, so 'claude-opus-5' also prices 'claude-opus-5-20260101'. Leave a key out and it is reported in tokens only. cacheRead and cacheWrite default to 0.1x and 1.25x of input when omitted. Prices change: copy the current numbers from https://platform.claude.com/docs/en/about-claude/pricing before trusting the $ column. Point $TOKENMISER_RATES at another file to keep local prices out of git.",
+  "_example": {
+    "claude-opus-5": { "input": 0, "output": 0 },
+    "claude-sonnet-5": { "input": 0, "output": 0 },
+    "claude-haiku-4-5": { "input": 0, "output": 0 }
+  },
+  "default": null
+}

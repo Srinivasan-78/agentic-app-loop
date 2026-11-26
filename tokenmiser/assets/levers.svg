@@ -1,0 +1,66 @@
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​​‌​‌‌​‌​‌‌​‌‌‌​​‌​​‌‌​​​‌‌​‌‌‌​​‌​‌​​‌​​‌​​​‌​‌​‌‌‌​​​‌​‌​​​​‌​​‌​​​‌‌​​‌‌​​‌‌‌​‌‌‌​‌‌‌​‌‌​​‌​​​​‌‌‌​​‌​‌‌‌‌​‌​​‌‌​​‌​‌​‌​​​‌​​​‌‌‌‌​‌​​‌​​‌‌​‌​‌‌‌​‌​‌​‌​​​​​‌​‌‌​​‌​‌​‌​​​‌‌​⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.-nLnREqBFgwd9zeDzMuAeF
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 560" width="1160" height="560" role="img" aria-label="Where the tokens go in one turn, and which tokenmiser skill pulls each lever">
+  <style>
+    .t   { font-family: system-ui,-apple-system,Segoe UI,sans-serif; }
+    .m   { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
+    .ink { fill: #e8ebef; }
+    .dim { fill: #99a2ae; }
+  </style>
+  <rect width="1160" height="560" rx="16" fill="#12161d"/>
+
+  <text class="t ink" x="40" y="52" font-size="26" font-weight="700">One turn, broken into four buckets</text>
+  <text class="t dim" x="40" y="82" font-size="17">Rough shares from a real long session. Fix the fat bucket first — the rest is rounding.</text>
+
+  <!-- stacked bar -->
+  <g transform="translate(40,110)">
+    <rect x="0"   y="0" width="120" height="64" rx="6" fill="#4c6ef5"/>
+    <rect x="124" y="0" width="470" height="64" rx="6" fill="#fa5252"/>
+    <rect x="598" y="0" width="380" height="64" rx="6" fill="#f6c453"/>
+    <rect x="982" y="0" width="98"  height="64" rx="6" fill="#12b886"/>
+
+    <text class="m ink" x="60"  y="40" font-size="16" text-anchor="middle">11%</text>
+    <text class="m ink" x="359" y="40" font-size="16" text-anchor="middle" fill="#ffffff">43%</text>
+    <text class="m"     x="788" y="40" font-size="16" text-anchor="middle" fill="#3a2c05">35%</text>
+    <text class="m ink" x="1031" y="40" font-size="16" text-anchor="middle" fill="#03301f">9%</text>
+  </g>
+
+  <!-- rows -->
+  <g transform="translate(40,220)" class="t" font-size="17">
+    <g>
+      <rect x="0" y="0" width="14" height="14" rx="3" fill="#4c6ef5"/>
+      <text class="ink" x="26" y="13" font-weight="600">Always-on context</text>
+      <text class="dim" x="300" y="13">CLAUDE.md, skill listings, tool schemas, memory</text>
+      <text class="m" x="820" y="13" fill="#8ab4ff">/miser-audit  /miser-compress  /miser-tools</text>
+    </g>
+    <g transform="translate(0,62)">
+      <rect x="0" y="0" width="14" height="14" rx="3" fill="#fa5252"/>
+      <text class="ink" x="26" y="13" font-weight="600">Conversation history</text>
+      <text class="dim" x="300" y="13">every earlier message, resent in full</text>
+      <text class="m" x="820" y="13" fill="#ff9b9b">/miser-session  /miser-prompt</text>
+    </g>
+    <g transform="translate(0,124)">
+      <rect x="0" y="0" width="14" height="14" rx="3" fill="#f6c453"/>
+      <text class="ink" x="26" y="13" font-weight="600">Tool results</text>
+      <text class="dim" x="300" y="13">file reads, test logs, build output, greps</text>
+      <text class="m" x="820" y="13" fill="#f6c453">/miser-read  /miser-hooks  /miser-delegate</text>
+    </g>
+    <g transform="translate(0,186)">
+      <rect x="0" y="0" width="14" height="14" rx="3" fill="#12b886"/>
+      <text class="ink" x="26" y="13" font-weight="600">The reply itself</text>
+      <text class="dim" x="300" y="13">prose, restated diffs, thinking tokens</text>
+      <text class="m" x="820" y="13" fill="#63e6be">/miser-speak  /miser-model</text>
+    </g>
+  </g>
+
+  <!-- footer callout -->
+  <g transform="translate(40,470)">
+    <rect x="0" y="0" width="1080" height="60" rx="10" fill="#ffffff" opacity="0.06"/>
+    <text class="t ink" x="24" y="37" font-size="17">The single number to watch: <tspan class="m" fill="#f6c453">eff input/turn</tspan> — how much context is sent with every request.</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+node_modules/
+*.log
+*.tgz
+.DS_Store
+scripts/rates.local.json
+*.bak-*
+
+# Master Bot hygiene additions
+__pycache__/
+*.py[cod]
+.env
+.env.local

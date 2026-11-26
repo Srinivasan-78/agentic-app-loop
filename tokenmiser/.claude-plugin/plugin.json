@@ -1,0 +1,10 @@
+{
+  "name": "tokenmiser",
+  "version": "0.2.0",
+  "description": "Token-reduction toolkit for Claude Code: context audit, retrieval discipline, output compression, delegation contracts, model routing, and a measurement harness.",
+  "author": { "name": "srini" },
+  "homepage": "https://github.com/Srinivasan-78/tokenmiser",
+  "repository": "https://github.com/Srinivasan-78/tokenmiser",
+  "license": "MIT",
+  "keywords": ["tokens", "cost", "context", "caveman", "compression", "measurement"]
+}

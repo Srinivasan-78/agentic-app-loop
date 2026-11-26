@@ -1,0 +1,56 @@
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​​‌‌‌​​‌‌​​‌​​‌‌‌‌​​​​‌​​‌‌‌‌​​‌‌​​​‌​‌​​​‌​‌​‌​​‌​​‌​‌​‌​‌​‌​‌​‌​​​‌​‌‌‌​‌​​​‌‌‌​​​​​‌​‌​‌​​​‌​‌​‌‌​​‌‌‌​‌‌‌​‌​‌​​​​​‌​‌​‌​‌​‌​‌​​‌​​‌‌​‌​‌​​​‌‌‌​​‌​‌‌‌​‌‌​​‌‌​​​​‌​​‌‌​‌​‌⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.G2xO1EIUQtpTVwPURj9va5
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="tokenmiser — why use many token when few do trick">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12161d"/>
+      <stop offset="100%" stop-color="#1d242f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6c453"/>
+      <stop offset="100%" stop-color="#d99425"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="320" rx="18" fill="url(#sky)"/>
+
+  <!-- cave wall texture -->
+  <g fill="#ffffff" opacity="0.03">
+    <circle cx="120" cy="70" r="46"/><circle cx="1040" cy="250" r="70"/>
+    <circle cx="880" cy="60" r="30"/><circle cx="260" cy="270" r="38"/>
+  </g>
+
+  <!-- stack of coins = tokens -->
+  <g transform="translate(96,96)">
+    <g fill="url(#gold)" stroke="#8a5a12" stroke-width="2">
+      <ellipse cx="60" cy="128" rx="56" ry="18"/>
+      <rect x="4" y="96" width="112" height="32" />
+      <ellipse cx="60" cy="96" rx="56" ry="18"/>
+      <rect x="4" y="64" width="112" height="32"/>
+      <ellipse cx="60" cy="64" rx="56" ry="18"/>
+      <rect x="4" y="32" width="112" height="32"/>
+      <ellipse cx="60" cy="32" rx="56" ry="18"/>
+    </g>
+    <text x="60" y="40" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="20" fill="#5a3a08" text-anchor="middle" font-weight="700">tok</text>
+  </g>
+
+  <!-- pickaxe -->
+  <g transform="translate(232,196) rotate(-32)">
+    <rect x="0" y="0" width="132" height="9" rx="4" fill="#8c6239"/>
+    <path d="M120 -16 q30 20 0 40 q-8 -20 0 -40 z" fill="#c9ced6"/>
+  </g>
+
+  <text x="400" y="132" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="62" font-weight="700" fill="#f6f7f9">tokenmiser</text>
+  <text x="402" y="176" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="23" fill="#f6c453">why use many token when few do trick</text>
+  <text x="402" y="222" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="20" fill="#aeb6c2">15 skills for Claude Code. One lever each. All measurable.</text>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="15" fill="#8e97a4">
+    <rect x="402" y="244" width="212" height="34" rx="8" fill="#ffffff" opacity="0.07"/>
+    <text x="418" y="266" fill="#e6e9ee">npx tokenmiser install</text>
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌​‌‌​​‌‌‌‌​​​​‌‌​​‌‌​​‌‌​​‌‌​​​‌‌​‌‌​​‌‌​‌​​​​​‌‌​‌‌‌​‌‌‌​​​‌​‌​‌​​‌‌​‌‌​‌‌‌​​‌​‌​​​‌​‌​​‌​‌​​‌​‌​​‌​​‌‌‌​​​​​‌‌​‌‌​‌​‌‌‌‌​​‌​​‌‌‌​​​​‌‌​​​​‌​‌​‌​​‌‌​‌​​‌​​​​‌​‌​​‌‌​​‌‌​‌​​⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.vxff6h7qSnQJRpmy8aSHS4
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 420" width="1160" height="420" role="img" aria-label="Every turn re-sends the whole conversation, so the pile you pay for grows with each message">
+  <style>
+    .t   { font-family: system-ui,-apple-system,Segoe UI,sans-serif; }
+    .m   { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
+    .ink { fill: #e8ebef; }
+    .dim { fill: #99a2ae; }
+  </style>
+
+  <rect width="1160" height="420" rx="16" fill="#12161d"/>
+  <text class="t ink" x="40" y="52" font-size="26" font-weight="700">Every message re-sends everything before it</text>
+  <text class="t dim" x="40" y="82" font-size="17">You are not billed for what you typed. You are billed for the whole pile, again, each turn.</text>
+
+  <!-- four turns -->
+  <g>
+    <!-- turn 1 -->
+    <g transform="translate(60,130)">
+      <rect x="0" y="150" width="180" height="26" rx="5" fill="#4c6ef5"/>
+      <rect x="0" y="120" width="180" height="26" rx="5" fill="#12b886"/>
+      <text class="m dim" x="90" y="206" font-size="14" text-anchor="middle">turn 1</text>
+      <text class="m ink" x="90" y="228" font-size="15" text-anchor="middle">12k</text>
+    </g>
+    <!-- turn 2 -->
+    <g transform="translate(300,130)">
+      <rect x="0" y="150" width="180" height="26" rx="5" fill="#4c6ef5"/>
+      <rect x="0" y="120" width="180" height="26" rx="5" fill="#12b886"/>
+      <rect x="0" y="90"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <rect x="0" y="60"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <text class="m dim" x="90" y="206" font-size="14" text-anchor="middle">turn 2</text>
+      <text class="m ink" x="90" y="228" font-size="15" text-anchor="middle">34k</text>
+    </g>
+    <!-- turn 3 -->
+    <g transform="translate(540,130)">
+      <rect x="0" y="150" width="180" height="26" rx="5" fill="#4c6ef5"/>
+      <rect x="0" y="120" width="180" height="26" rx="5" fill="#12b886"/>
+      <rect x="0" y="90"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <rect x="0" y="60"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <rect x="0" y="30"  width="180" height="26" rx="5" fill="#fa5252"/>
+      <rect x="0" y="0"   width="180" height="26" rx="5" fill="#fa5252"/>
+      <text class="m dim" x="90" y="206" font-size="14" text-anchor="middle">turn 3</text>
+      <text class="m ink" x="90" y="228" font-size="15" text-anchor="middle">88k</text>
+    </g>
+    <!-- turn 4 -->
+    <g transform="translate(780,130)">
+      <rect x="0" y="150" width="180" height="26" rx="5" fill="#4c6ef5"/>
+      <rect x="0" y="120" width="180" height="26" rx="5" fill="#12b886"/>
+      <rect x="0" y="90"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <rect x="0" y="60"  width="180" height="26" rx="5" fill="#f6c453"/>
+      <rect x="0" y="30"  width="180" height="26" rx="5" fill="#fa5252"/>
+      <rect x="0" y="0"   width="180" height="26" rx="5" fill="#fa5252"/>
+      <rect x="0" y="-30" width="180" height="26" rx="5" fill="#fa5252"/>
+      <rect x="0" y="-60" width="180" height="26" rx="5" fill="#fa5252"/>
+      <text class="m dim" x="90" y="206" font-size="14" text-anchor="middle">turn 4</text>
+      <text class="m ink" x="90" y="228" font-size="15" text-anchor="middle">170k</text>
+    </g>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(60,376)" class="t" font-size="15">
+    <rect x="0"   y="-12" width="14" height="14" rx="3" fill="#4c6ef5"/><text class="dim" x="22" y="0">rules + skills (fixed)</text>
+    <rect x="200" y="-12" width="14" height="14" rx="3" fill="#12b886"/><text class="dim" x="222" y="0">your question</text>
+    <rect x="370" y="-12" width="14" height="14" rx="3" fill="#f6c453"/><text class="dim" x="392" y="0">files it read</text>
+    <rect x="520" y="-12" width="14" height="14" rx="3" fill="#fa5252"/><text class="dim" x="542" y="0">command output + earlier replies</text>
+  </g>
+
+  <text class="m" x="1000" y="290" font-size="15" fill="#f6c453" text-anchor="middle">this is the bill</text>
+  <path d="M1000 300 L1000 330 L960 330" stroke="#f6c453" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f6c453"/></marker></defs>
+</svg>
