@@ -2,13 +2,6 @@
 name: miser-tools
 description: Cut the per-session tool tax — audit MCP servers, prefer CLI over MCP, compress or defer tool schemas, and design aggregation tools that return summaries instead of raw records. Use for "MCP eating context", "too many tools", "reduce tool definitions".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌‌‌‌​‌​​‌​‌‌​​‌‌‌​​‌​‌‌​‌‌​‌​‌​​​‌​​​‌‌‌​​‌‌​​‌‌​​​‌​‌‌‌​‌​‌​​‌​‌‌​‌​‌‌​‌‌‌​​​‌‌‌​​​​‌‌‌​‌​‌​‌​​‌‌‌​​‌‌‌​​‌‌​‌​‌​‌​‌​‌​​‌‌​‌​‌‌​‌​‌​​​‌‌​‌​‌​​‌‌​‌​​​‌‌‌‌​‌​​​‌‌‌​​​​‌​‌​‌​​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.oK9mDs1u-n8uNsUMj54z8T
--->
 
 # miser-tools
 

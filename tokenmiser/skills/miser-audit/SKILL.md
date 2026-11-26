@@ -2,13 +2,6 @@
 name: miser-audit
 description: Find what silently eats context every session — oversized CLAUDE.md, skill/plugin listings, MCP schemas, memory, settings, stale sessions — and produce a ranked prune list with token estimates. Use for "what's eating my context", "audit token usage", "why is my context so big".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌​​​​‌‌​​​‌​​‌​​‌​​​​‌‌‌​​‌​​‌​‌‌‌‌‌​‌​​‌​​‌​‌​‌​‌‌​​‌‌‌​​‌​​‌​‌​‌​​​‌​​‌​​​​‌​​‌‌​‌​‌​​​‌‌‌​‌​‌​‌‌​​‌​​‌‌​​​‌‌‌​‌‌​​‌​‌​‌‌‌​​‌​‌‌​‌​‌​​‌‌‌​​‌​‌​​​‌​‌‌​​​‌​​‌‌​​​‌‌​‌​‌​​‌‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.hbHr_IVrTHMGVLvW-NQbcS
--->
 
 # miser-audit
 

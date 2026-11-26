@@ -2,13 +2,6 @@
 name: miser-bench
 description: Measure token usage from session logs and A/B test whether a change actually saved tokens — per-session totals, cache-hit share, thinking share, and baseline diffs. Use for "how many tokens did that use", "did the setup help", "benchmark token savings".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​​‌‌​​‌‌​‌​‌​‌‌​‌​​‌​‌​‌​‌‌‌​‌‌​​‌‌‌​‌​‌‌​​​​‌​‌​‌​‌​‌‌‌​‌‌​​​‌​‌‌​‌​‌​​​‌‌​​‌​‌‌​‌​​‌​​​​‌​​‌​​​​​‌​‌‌‌‌​​​​‌‌​‌​‌​​‌‌​‌​​‌​‌‌‌‌​​‌​‌‌​‌‌​‌​‌‌‌​​​‌​‌‌‌​​​‌​‌‌​​‌​‌​​‌‌​​‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.S5iWgXUv-FZBAxjiymqqe2
--->
 
 # miser-bench
 

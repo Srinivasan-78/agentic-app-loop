@@ -2,13 +2,6 @@
 name: miser-setup
 description: One-time token-reduction setup for this machine or repo — writes settings.json env/hooks, installs the tool-output filter, prunes CLAUDE.md, disables unused MCP servers, and records a baseline. Use for "set up tokenmiser", "reduce my token usage", "configure token savings".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌‌‌‌‌​​‌​‌‌​‌​​‌‌​‌​​​‌​​‌‌‌​​‌‌‌​‌​​​‌​​‌​‌‌​‌​‌​​​​​​‌‌​​‌‌​‌‌‌‌​‌​​‌‌​​‌​​​‌​​‌​​‌​‌​​​‌‌‌​‌​​​‌‌‌​‌​​‌‌‌‌​​‌‌‌​​​​‌‌​‌‌‌​​​‌‌​‌​‌​‌‌​​‌‌‌​​‌‌​​​‌​‌​​‌‌‌‌​‌​‌​‌‌​​​‌​‌‌​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1._-4NtKP3zdIGGO8n5g1OV-
--->
 
 # miser-setup
 

@@ -2,13 +2,6 @@
 name: miser-api
 description: Token levers for code you write against an LLM API — prompt caching, batch, model routing, RAG, compaction, output caps, structured output, and semantic caching, with the arithmetic for when each pays. Use when building or optimizing an agent, pipeline, or chatbot.
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌​​​‌‌‌​‌​‌​‌‌​‌‌‌​​​‌‌‌​​‌​‌‌​‌​​​​‌​​​​​‌​​‌‌‌​​​​​‌‌​‌​‌​​‌‌​‌‌​​‌​​‌​‌‌​‌​​​‌​​​‌​​‌‌‌​​​‌‌​​​​​‌​​​​‌​​‌‌​‌​‌​​‌‌‌‌​‌​​‌‌‌‌​​‌​‌‌​‌‌​‌​‌‌​​​‌​​‌‌​​‌‌‌​‌‌‌​​​‌​‌‌​​​​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.Tun9hA856KDN0Bjzymbgqa
--->
 
 # miser-api
 

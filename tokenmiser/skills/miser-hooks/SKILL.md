@@ -2,13 +2,6 @@
 name: miser-hooks
 description: Preprocess tool output with hooks so raw logs, test runs, and builds never reach the context — plus deterministic checks that answer without any model call. Use for "filter test output", "logs blowing up context", "hook to save tokens".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌‌‌​‌‌‌‌​​​​​‌‌​‌​‌​‌​​​‌‌​​‌‌​‌​‌‌​‌​‌​‌‌‌​‌​‌​​‌​​​‌‌​​​‌​‌‌‌​​​​​‌​​‌‌​​​‌‌​‌‌‌​​​‌‌​‌‌​​‌​‌​​​‌​‌​​‌‌​‌​‌​​‌‌‌‌​‌‌‌‌​​​​‌​​‌‌‌​​‌‌​​‌‌​​‌‌‌​‌​​​‌​​‌‌‌‌​‌‌​​​‌‌​‌​​‌‌​​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.Wx5FkWR1pLn6QMOxNftOcL
--->
 
 # miser-hooks
 

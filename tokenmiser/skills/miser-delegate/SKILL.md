@@ -2,13 +2,6 @@
 name: miser-delegate
 description: Decide when a subagent actually saves tokens and write the bounded contract that makes it pay off — verbose work stays isolated, only a compressed summary returns. Use for "should I use a subagent", "delegate this", "save context on exploration".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌​​‌​​‌‌​‌‌‌​​‌‌​‌‌​​​‌‌‌‌​‌​​‌​‌‌​‌​​‌​​​‌​​​‌​​​​‌‌​‌‌‌​‌​‌​​‌‌​​​‌​‌‌​​‌​‌​‌​​‌‌​‌​​‌‌​‌​​​​‌‌‌​​‌​‌‌‌‌​​‌​‌​​​​​‌​‌‌‌​‌‌‌​‌​‌‌​‌​​‌‌​​​‌‌​​‌‌​​‌‌​​‌‌‌​​‌​‌‌‌​​​​​‌​‌‌​‌​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.rnlzZDCu1eM49yAwZc39pZ
--->
 
 # miser-delegate
 

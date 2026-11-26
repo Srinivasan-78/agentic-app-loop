@@ -2,13 +2,6 @@
 name: miser-prompt
 description: Shape requests so the agent does less work for the same result — specific targets, explicit output caps, verification criteria, and batched asks. Use for "how do I prompt to save tokens", "my requests trigger huge scans".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​​‌‌​​‌​‌​‌‌‌​‌​​​‌‌​​‌‌​​‌​​​‌​​‌‌​‌​‌​​​​‌​​‌​​‌​​‌​​‌‌​​‌​​​‌‌​‌‌‌​‌​​​‌‌‌​‌‌‌​​​‌​‌‌​​​‌​​​‌‌​​​​​​‌‌​​​‌​‌​​‌‌‌‌​‌​‌‌​‌​​‌​‌​​‌‌​‌‌‌‌​‌​​‌​​​‌‌​​‌‌​​​‌​​‌‌​​​‌​​‌​​​‌​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.fWFdMBI27Gqb01OZSzFbbE
--->
 
 # miser-prompt
 

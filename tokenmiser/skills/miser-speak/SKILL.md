@@ -2,13 +2,6 @@
 name: miser-speak
 description: Terse output mode (caveman-compatible) that cuts response tokens while keeping every technical fact, code block, and error string exact. Levels lite/full/ultra/wenyan-*/off. Use for "be terse", "caveman mode", "stop explaining so much", "save output tokens".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​​‌‌​‌‌​​​‌‌​​​‌​‌​​‌‌‌​​‌‌‌‌​​​​‌​​​​‌‌​​‌‌​​‌​​‌‌‌​‌​‌​​‌‌​​​‌​‌‌​‌‌‌​​‌‌​‌​‌​​‌‌‌​​‌‌​​‌​‌‌​‌​‌‌​‌‌‌​​‌​​​‌​​​‌​‌​‌​‌​‌​‌‌​‌​​‌​‌‌‌‌‌​‌​​‌​​‌​​‌‌​​‌​​‌​‌​​‌​​​‌‌​​​‌​‌​​​​​‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.61NxC2u1njs-nDUZ_I2R1A
--->
 
 # miser-speak
 

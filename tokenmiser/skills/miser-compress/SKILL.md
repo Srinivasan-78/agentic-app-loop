@@ -2,13 +2,6 @@
 name: miser-compress
 description: Rewrite a memory or context file (CLAUDE.md, AGENTS.md, notes, prompt templates) into a dense form that costs fewer input tokens every session, keeping all technical substance. Use for "compress my CLAUDE.md", "shrink this context file".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​‌​‌​‌​‌‌​‌​‌‌​‌‌​‌‌​‌​​‌‌​‌‌​​​‌‌‌​​‌​‌‌​‌‌‌​​‌​‌​​‌​​‌‌​‌‌‌​​‌​​‌​‌‌​‌​‌​​‌​​‌​‌​‌‌‌​‌‌​​‌‌‌​‌‌​​‌​‌​‌‌​‌​‌​​‌‌​‌‌​​​‌​​​​‌‌​‌‌​‌​​​​‌‌‌‌​​​​‌​​‌​​​​‌‌‌​‌‌‌​‌​‌​‌​​​​‌‌​‌‌‌⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.Ukm69nRnKRWgejlChxHwT7
--->
 
 # miser-compress
 

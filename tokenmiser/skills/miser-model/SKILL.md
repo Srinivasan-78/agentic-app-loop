@@ -2,13 +2,6 @@
 name: miser-model
 description: Route each task to the cheapest model and reasoning effort that still gets it right, and control thinking-token spend. Use for "which model should I use", "reduce thinking tokens", "cut cost without losing quality".
 ---
-<!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌‌​​‌​‌​​​‌​​​‌​​‌​‌​​‌​‌​​​‌​‌‌‌​​​​​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌​‌​‌‌‌​​‌​​‌‌​​​‌‌​‌‌​‌​‌​​​‌‌​‌​‌​‌​​‌‌​‌​‌​​‌‌‌‌​​‌‌​​‌​​‌​‌​‌‌‌​‌‌‌​​​​​‌​​‌​​‌​‌‌‌​‌​‌​‌​​‌​​‌​‌‌​​​‌‌​‌‌‌‌​​​⁠
-  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
-  Author: https://github.com/Srinivasan-78
-  SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.yDJQpcomrcj5MO2WpIuIcx
--->
 
 # miser-model
 
