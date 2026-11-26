@@ -109,10 +109,10 @@ eff in/turn (7d): 142,354   [baseline saved as "pre"]
 
 claude:  settings.json (model=opus, effortLevel=xhigh, subagent=sonnet/medium)
          hook wired (PreToolUse/Bash)
-         14 agents + 18 skills available after restart
+         14 agents + 31 skills available after restart
 codex:   config.toml ([agents] sol/xhigh parent, luna/high hands)
          14 agent files -> ~/.codex/agents/
-         15 skills -> ~/.agents/skills/
+         31 skills -> ~/.agents/skills/
 
 skipped: MCP prune (user declined)
 next:    restart the agent, then /penny-doctor
@@ -183,6 +183,31 @@ back when it hits a genuinely open choice.
 | `/penny-doctor` | verify it, read-only (§2) |
 | `/penny-help` | this index |
 | `/penny-scout <question>` | one bounded cheap exploration; the answer, not the file dump |
+| `/penny-playwright [topic]` | Playwright setup, verification patterns, and 7 examples |
+
+### Code discipline (Ponytail)
+
+| Command / Skill | What |
+|-----------------|------|
+| `/ponytail [lite\|full\|ultra\|off\|band]` | minimalist coding mode — least new code and clear replies (`ponytail`) |
+| `/ponytail-review [target]` | diff + connected-code review for correctness, security, load, speed, and bloat (`ponytail-review`) |
+| `/ponytail-audit [scope]` | read-only whole-repo quality and bloat audit, ranked (`ponytail-audit`) |
+| `/ponytail-debt [marker]` | collect `shortcut:` and `ponytail:` comments into a tracked debt ledger (`ponytail-debt`) |
+| `/ponytail-gain` | one-shot published Ponytail benchmark savings card (`ponytail-gain`) |
+| `/ponytail-help` | quick reference for Ponytail levels, band, and defaults (`ponytail-help`) |
+
+### Anti-slop quality filters (Anti-Slop)
+
+Invoke with `/antislop` or let the model load the specialist skills on matching tasks:
+
+| Skill | Scope |
+|-------|-------|
+| `antislop` (`/antislop`) | core anti-slop workflow: Purpose Test, `during`/`after` modes, Delivery Gate |
+| `antislop-ui` | visual craft, color restraint, components, motion, Web Baseline / CWV |
+| `antislop-layoutmobile` | responsive layout reflow, breakpoints, grids, overflow, tap targets |
+| `antislop-human` | accessibility, WCAG 2.2, keyboard/focus, plus `contrast-check.py` / contrast MCP |
+| `antislop-copywriting` | headlines, CTAs, tone, anti-AI-prose rules |
+| `antislop-code` | comment hygiene: strip decorative/obvious AI comments, keep real constraints |
 
 ### The token skills
 
@@ -218,9 +243,10 @@ know what exists:
 ### What this kit costs
 
 Each installed skill advertises its name and description every session (~100
-tokens). 18 skills ≈ 1.8k tokens standing cost. The 14 agents cost nothing until
-spawned. If you never fire a skill, delete its directory — the technique catalog
-in `reference/techniques.md` stays readable either way.
+tokens). 31 skills ≈ 3.1k tokens standing cost. The 14 agents cost nothing until
+spawned. If you never fire a skill (for example, `antislop-*` or `ponytail*`
+sub-skills you do not use), delete its directory — the technique catalog in
+`reference/techniques.md` stays readable either way.
 
 Be honest about this in the report: the kit is not free, it is *cheap relative
 to what it saves*, and on a small codebase with quiet tests it may not pay for

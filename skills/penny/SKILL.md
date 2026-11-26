@@ -79,6 +79,13 @@ be guesses, you are about to build the wrong thing confidently.
 - **When genuinely torn between two lanes, pick the cheaper one** and say which
   you rejected. The user corrects you in one word, and the cheap lane often
   turns out to be enough.
+- **Stack quality overlays when they fit.** For requests asking to simplify code,
+  prevent over-engineering, review a diff/repo for bloat, or track deferred
+  shortcuts, pair the lane with `/ponytail`, `/ponytail-review`,
+  `/ponytail-audit`, or `/ponytail-debt`. For UI, responsive layout,
+  accessibility/contrast, marketing copy, or comment cleanup requests, load
+  `/antislop` (and the matching `antislop-*` specialist skills) alongside the
+  lane.
 
 ## Step 2 — refine (REFINE lane only)
 

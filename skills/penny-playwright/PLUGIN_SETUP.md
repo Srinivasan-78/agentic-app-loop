@@ -176,7 +176,7 @@ The agent will generate tests following the established patterns.
 If a test is flaky:
 
 ```
-This test flakes on the button click step. 
+This test flakes on the button click step.
 Make it reliable by:
 - Waiting for the button to be enabled
 - Using waitForNavigation if needed

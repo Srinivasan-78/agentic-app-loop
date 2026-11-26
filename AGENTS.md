@@ -12,11 +12,14 @@ changes what "correct" means, so read this before editing.
 | `skills/penny-build/` | the 7-phase build loop + phase contracts |
 | `skills/penny-council/` | the five mandates + the council protocol |
 | `skills/penny-kit/` | setup, doctor, and the model policy |
+| `skills/penny-playwright/` | Playwright setup, verification patterns, and 7 examples |
 | `skills/miser-*/` | 14 token skills, vendored from tokenmiser |
+| `skills/ponytail*/` | 6 minimalist-coding, review, audit, and debt skills (bundled from Ponytail) |
+| `skills/antislop*/` | 6 UI, layout, accessibility, copy, and comment quality filters (bundled from Anti-Slop) |
 | `agents/` | 14 Claude subagent definitions |
 | `codex/agents/` | the same 14, mirrored as Codex `.toml` |
-| `commands/` | 7 slash commands |
-| `scripts/`, `hooks/`, `reference/` | the executable substrate the skills call |
+| `commands/` | 15 slash commands |
+| `scripts/`, `hooks/`, `reference/` | the executable substrate the skills call (including optional Ponytail hooks and the Anti-Slop contrast script/launcher) |
 | `tools/audit.mjs` | maintainer consistency check — run it before committing |
 
 ## Hard rules
@@ -63,7 +66,7 @@ The product is prose that another model has to act on, so:
 - **Keep the caps numeric.** Word caps, turn caps, line caps. "Be concise" is not
   a cap.
 - **Be honest about cost in the user-facing text.** A council is ~11 agent runs.
-  18 skills cost ~1.8k tokens every session. `hide_agent_reasoning` saves no
+  31 skills cost ~3.1k tokens every session. `hide_agent_reasoning` saves no
   tokens. If a lever does not pay on a small repo, say so. Overselling this kit
   is the one failure the tests cannot catch.
 - **Verify platform facts before writing them down.** Model names, config keys,
@@ -123,3 +126,19 @@ the text so it is not "corrected" back. The two deliberate divergences:
   `MAX_THINKING_TOKENS: 8000` — a setting `/penny-doctor` flags as a warning, so
   the kit would have installed something its own doctor complains about. Do not
   re-add it; extend `skills/penny-kit/references/claude-setup.md` instead.
+
+In addition, Pennywright bundles two MIT-licensed skill suites (see
+`THIRD_PARTY_NOTICES.md` for full licenses):
+
+- **`skills/ponytail*/` and `hooks/ponytail-*`** from
+  [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). Runtime
+  hooks (`hooks/ponytail-hooks.json`) stay opt-in rather than auto-enabled in
+  `.claude-plugin/plugin.json`, and `argument-hint` moved from
+  `skills/ponytail/SKILL.md` onto `commands/ponytail.md` to satisfy the skill
+  frontmatter schema.
+- **`skills/antislop*/` and `scripts/contrast-mcp-launcher.mjs`** from
+  [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) (and
+  `web-quality-skills` references copyright Addy Osmani). Contrast checking works
+  zero-config via `skills/antislop-human/contrast-check.py` over Bash, while
+  `scripts/contrast-mcp-launcher.mjs` stays optional so it adds no standing MCP
+  schema tax unless enabled.

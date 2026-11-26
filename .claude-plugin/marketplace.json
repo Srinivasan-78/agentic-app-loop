@@ -5,7 +5,7 @@
     {
       "name": "pennywright",
       "source": "./",
-      "description": "The utility belt for coding agents: /penny routes any request to a 7-phase build loop, a 5-member council, or a bounded scout — with token discipline throughout. Claude Code and Codex."
+      "description": "The utility belt for coding agents: /penny routes requests across a 7-phase build loop, 5-member council, bounded scout, tokenmiser optimization, Ponytail minimalist coding/review, and Anti-Slop UI/a11y/copy filters. Claude Code and Codex."
     }
   ]
 }

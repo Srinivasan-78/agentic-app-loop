@@ -53,7 +53,7 @@ setting the user cannot fix.
 | B8 | `CLAUDE_CODE_GOAL_CHECKIN_MINUTES` | `0` |
 | B9 | `MAX_THINKING_TOKENS` | **absent.** If present, warn: it is ignored on adaptive-reasoning models, so it reads as a cap while doing nothing. Offer removal. |
 | B10 | Agents present | 14 in `agents/`, each with `model:` and a `tools:` allowlist |
-| B11 | Skills present | 18 (`penny`, `penny-build`, `penny-council`, `penny-kit`, 14 `miser-*`) |
+| B11 | Skills present | 31 (`penny`, `penny-build`, `penny-council`, `penny-kit`, `penny-playwright`, 14 `miser-*`, 6 `ponytail*`, 6 `antislop*`) |
 | B12 | Hook selftest | `python3 ~/.claude/hooks/filter-tool-output.py --selftest` exits 0 |
 
 B1 and B2 are *defaults for new sessions*. Report them as configured defaults,

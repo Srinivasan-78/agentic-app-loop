@@ -18,7 +18,7 @@ Works on **Claude Code** and **Codex**, from the same repo.
 /penny-doctor             # Verify it worked
 ```
 
-**That's it.** 18 skills + 7 agents + Playwright examples ready to use.
+**That's it.** 31 skills + 14 subagents + 7 Playwright examples ready to use.
 
 ### Your First Command
 
@@ -72,6 +72,28 @@ Reach for these when Claude Code suggests them, or invoke manually:
 | **`/miser-hooks`** | Filter config & hook management |
 | **`/miser-git`** | Terse commits & review comments |
 | **`/miser-api`** | LLM code patterns (caching, batching, RAG) |
+
+### Code Discipline & Review (Ponytail)
+
+| Command | What it Does |
+|---------|--------------|
+| **`/ponytail [lite\|full\|ultra\|off\|band]`** | Minimalist coding mode — least new code and clear replies |
+| **`/ponytail-review [target]`** | Diff + connected-code quality review (bugs, security, load, bloat) |
+| **`/ponytail-audit [scope]`** | Ranked whole-repo quality & cuttable-bloat audit (read-only) |
+| **`/ponytail-debt [marker]`** | Harvest `shortcut:` / `ponytail:` comments into a tracked debt ledger |
+| **`/ponytail-gain`** | Published benchmark savings scoreboard (LOC, tokens, cost, time) |
+| **`/ponytail-help`** | Quick reference for Ponytail levels, band, and default mode config |
+
+### Anti-Slop Quality Filters (Anti-Slop)
+
+| Command / Skill | Scope |
+|-----------------|-------|
+| **`/antislop [during\|after]`** | Core AI-slop filter (`antislop`) with Purpose Test and Delivery Gate |
+| **`antislop-ui`** | Visual craft, palette restraint, components, motion, CWV / Web Baseline |
+| **`antislop-layoutmobile`** | Responsive reflow, breakpoints, grids, overflow, tap targets |
+| **`antislop-human`** | Accessibility, WCAG 2.2, keyboard/focus + `contrast-check.py` |
+| **`antislop-copywriting`** | Headlines, CTAs, tone, anti-AI-prose rules |
+| **`antislop-code`** | Comment hygiene — remove decorative AI comments, keep real constraints |
 
 ---
 
@@ -229,14 +251,16 @@ Checks:
 
 ## 📚 What's Inside
 
-### Skills (18 total)
+### Skills (31 total)
 
 - **penny** — Front door (classifier & router)
 - **penny-build** — 7-phase BUILD loop
 - **penny-council** — 5-agent council + referee
 - **penny-kit** — Setup, verify, help
-- **penny-playwright** — Browser testing (NEW)
+- **penny-playwright** — Browser testing & 7 examples
 - **14 miser-\*** — Token optimization toolkit
+- **6 ponytail\*** — Minimalist coding mode, diff/repo reviews, debt ledger
+- **6 antislop\*** — UI, mobile layout, WCAG/contrast, copywriting, and comment filters
 
 ### Agents (14 total)
 
@@ -285,7 +309,7 @@ Copy any to your project and customize.
 
 | What | Standing Cost | Per-Use Cost |
 |-----|---|---|
-| 18 skill descriptions | ~1.8k tokens/session | — |
+| 31 skill descriptions | ~3.1k tokens/session | — |
 | Routing (classify + sharpen) | ~300 tokens | — |
 | BUILD loop phase | — | ~5k tokens (agent context, then discarded) |
 | COUNCIL | — | ~11 agent runs (~50k tokens) |
@@ -328,7 +352,7 @@ Read `hooks/filter-tool-output.py` before installing it. It's 177 lines and wort
 
 ### Reference
 
-10. [The 15 skills](#10-the-15-skills)
+10. [The 31 skills](#10-the-31-skills)
 11. [Install](#11-install)
 12. [Configuration reference](#12-configuration-reference)
 13. [Codex differences](#13-codex-differences)
@@ -395,7 +419,7 @@ Nothing here runs on its own. These are static files that a coding agent loads.
   plugin.json          makes this installable via /plugin install
   marketplace.json     makes this installable via /plugin marketplace add
 
-commands/              7 slash commands — prompt templates
+commands/              15 slash commands — prompt templates
 agents/                14 Claude subagent definitions
 codex/
   agents/              the same 14, as Codex .toml
@@ -409,9 +433,11 @@ skills/
   penny-kit/           setup, doctor, help, and the model policy
   penny-playwright/    Playwright setup, verification, 7 examples
   miser-*/             14 token skills
+  ponytail*/           6 minimalist coding, review, audit, and debt skills
+  antislop*/           6 UI, layout, accessibility, copy, and comment filters
 
-scripts/               context-report.sh, miser-bench.mjs, rates.json
-hooks/                 filter-tool-output.py
+scripts/               context-report.sh, miser-bench.mjs, rates.json, contrast-mcp-launcher.mjs
+hooks/                 filter-tool-output.py + optional ponytail hooks/statusline
 reference/             techniques.md — the catalog behind the miser skills
 tools/                 audit.mjs — the maintainer consistency check
 ```
@@ -419,7 +445,7 @@ tools/                 audit.mjs — the maintainer consistency check
 ### How each kind of file is used
 
 **`skills/*/SKILL.md`** — the frontmatter `name` and `description` are loaded
-into context **every session** (~100 tokens each; 18 skills ≈ 1.8k standing
+into context **every session** (~100 tokens each; 31 skills ≈ 3.1k standing
 cost). The *body* loads only when the skill actually fires. That asymmetry is
 the whole economics of skills: cheap to have, you pay on use. It is also why
 every description in this repo lists trigger phrases — a description that does
@@ -847,7 +873,11 @@ writes several log lines per response and counting them all inflates a session
 
 ---
 
-## 10. The 15 skills
+## 10. The 31 skills
+
+Four core skills (`penny`, `penny-build`, `penny-council`, `penny-kit`), one
+Playwright guide (`penny-playwright`), 14 `miser-*` skills, 6 `ponytail*`
+skills, and 6 `antislop*` skills make up the full set.
 
 ### Playwright Integration
 
@@ -882,6 +912,37 @@ Model-invoked — you rarely type these; the agent reaches for them. This is the
 | `miser-api` | your own code | prompt caching, batch, RAG, model routing in an app you are building |
 
 `reference/techniques.md` is the catalog behind them, readable on its own.
+
+### The 6 Ponytail skills
+
+Minimalist coding discipline, plain-English reviews, and debt tracking, bundled
+from [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail):
+
+| Skill | Command | Purpose |
+|---|---|---|
+| `ponytail` | `/ponytail` | Minimal complete change (`lite`/`full`/`ultra`), runtime mode hooks in `hooks/ponytail-hooks.json` (opt-in) |
+| `ponytail-review` | `/ponytail-review` | Quality review of a diff and connected callers (bugs, security, load, tests, bloat) |
+| `ponytail-audit` | `/ponytail-audit` | Whole-repo ranked quality and cuttable-bloat audit |
+| `ponytail-debt` | `/ponytail-debt` | Harvest `shortcut:` and `ponytail:` comments into a ledger |
+| `ponytail-gain` | `/ponytail-gain` | Published Ponytail agentic benchmark savings scoreboard |
+| `ponytail-help` | `/ponytail-help` | Reference card for Ponytail levels, band, and defaults |
+
+### The 6 Anti-Slop skills
+
+Quality filters for interfaces, accessibility, copy, and comments, bundled from
+[miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) (and
+[web-quality-skills](https://github.com/addyosmani/web-quality-skills)):
+
+| Skill | Scope | Bundles |
+|---|---|---|
+| `antislop` | Core filter (`during` / `after` mode, Purpose Test, Delivery Gate) | `skills/antislop/VERSION` |
+| `antislop-ui` | Color restraint, craft, motion, components | `CORE-WEB-VITALS.md`, `WEB-BASELINE.md` |
+| `antislop-layoutmobile` | Responsive reflow, grids, overflow, tap targets | — |
+| `antislop-human` | WCAG 2.2, keyboard, focus, contrast | `contrast-check.py`, `contrast-mcp.py`, `WCAG.md`, `A11Y-PATTERNS.md` |
+| `antislop-copywriting` | Headlines, CTAs, tone, anti-AI-prose rules | — |
+| `antislop-code` | Remove generic/obvious AI comments, keep real constraints | — |
+
+The contrast checker runs zero-config via Bash (`skills/antislop-human/contrast-check.py`), or optionally as an MCP server via `scripts/contrast-mcp-launcher.mjs`.
 
 ---
 
@@ -1091,8 +1152,8 @@ likely cause of the last miss) — those see live state the scripts cannot.
 
 ## 15. Honest limitations
 
-- **The kit is not free.** 18 skills advertise their descriptions every session,
-  roughly 1.8k tokens of standing cost. On a small repo with quiet tests it may
+- **The kit is not free.** 31 skills advertise their descriptions every session,
+  roughly 3.1k tokens of standing cost. On a small repo with quiet tests it may
   not pay for itself. `miser-bench` is how you find out instead of assuming.
   Delete any skill directory you never fire.
 - **A council spends more tokens than deciding yourself.** ~11 agent runs. What
@@ -1179,7 +1240,15 @@ subagent spawns anyway and runs with no contract at all.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT — see [`LICENSE`](LICENSE) and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-`skills/miser-*`, `scripts/`, `hooks/` and `reference/` are vendored from
-[tokenmiser](https://github.com/Srinivasan-78/tokenmiser) by the same author.
+- `skills/miser-*`, `scripts/`, `hooks/filter-tool-output.py`, and `reference/`
+  are vendored from [tokenmiser](https://github.com/Srinivasan-78/tokenmiser) by
+  the same author.
+- `skills/ponytail*`, `hooks/ponytail-*`, and `hooks/ponytail-hooks.json` are
+  bundled from [ponytail](https://github.com/DietrichGebert/ponytail) (MIT,
+  Copyright (c) 2026 DietrichGebert).
+- `skills/antislop*` and `scripts/contrast-mcp-launcher.mjs` are bundled from
+  [anti-slop](https://github.com/miqdadbadjuber/anti-slop) (MIT, Copyright (c)
+  2026 Miqdad Badjuber) with reference files from
+  `web-quality-skills` (MIT, Copyright (c) 2026 Addy Osmani).
