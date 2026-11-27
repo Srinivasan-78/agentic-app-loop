@@ -1,0 +1,12 @@
+[package]
+name = "pennywright-context"
+version = "1.0.0"
+edition = "2021"
+description = "Cross-platform Rust CLI for always-on AI session context and MCP token estimation"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+walkdir = "2.5"
