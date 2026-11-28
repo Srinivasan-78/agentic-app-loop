@@ -289,8 +289,9 @@ function doctor() {
   const checks = [];
   const nodeOk = Number(process.versions.node.split('.')[0]) >= 18;
   checks.push([nodeOk, `node ${process.versions.node}`, 'need >= 18.17']);
-  const py = spawnSync('python3', ['--version'], { encoding: 'utf8' });
-  checks.push([py.status === 0, `python3 ${(py.stdout || py.stderr || '').trim() || 'missing'}`, 'needed by the tool-output filter hook']);
+  const pyCmd = process.platform === 'win32' ? 'python' : 'python3';
+  const py = spawnSync(pyCmd, ['--version'], { encoding: 'utf8' });
+  checks.push([py.status === 0, `${pyCmd} ${(py.stdout || py.stderr || '').trim() || 'missing'}`, 'needed by the tool-output filter hook']);
   checks.push([fs.existsSync(CLAUDE_HOME), `claude config dir ${CLAUDE_HOME}`, 'is Claude Code installed?']);
   const projects = path.join(CLAUDE_HOME, 'projects');
   const sessions = fs.existsSync(projects)

@@ -112,7 +112,11 @@ def rewrite(cmd: str) -> str | None:
     parts = cmd.split(maxsplit=1)
     args = parts[1] if len(parts) > 1 else ""
     for pattern, template in RULES + load_user_rules():
-        if re.search(pattern, cmd):
+        try:
+            matched = re.search(pattern, cmd)
+        except re.error:
+            continue
+        if matched:
             try:
                 new = template.format(cmd=cmd, args=args)
             except (KeyError, IndexError, ValueError):
@@ -135,7 +139,6 @@ def main() -> None:
     print(json.dumps({
         "hookSpecificOutput": {
             "hookEventName": "PreToolUse",
-            "permissionDecision": "allow",
             "updatedInput": {"command": new},
         }
     }))

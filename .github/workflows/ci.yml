@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  node:
+  node-and-python:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     defaults:
@@ -26,16 +26,30 @@ jobs:
         os: ['ubuntu-latest', 'windows-latest']
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7
         with:
           node-version: '22'
-      - name: Install dependencies
-        run: if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install; fi
-      - name: Lint (if configured)
-        run: if [ -f package.json ]; then npm run lint --if-present; fi
-      - name: Typecheck (if configured)
-        run: if [ -f package.json ]; then npm run typecheck --if-present; fi
-      - name: Build (if configured)
-        run: if [ -f package.json ]; then npm run build --if-present; fi
-      - name: Run tests
-        run: if [ -f package.json ]; then npm test --if-present; fi
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7
+        with:
+          python-version: '3.12'
+      - name: Run tokenmiser smoke tests
+        run: node --test tokenmiser/test/smoke.test.mjs
+      - name: Run repo audit
+        run: node tools/audit.mjs
+      - name: Run filter-tool-output selftest
+        run: python hooks/filter-tool-output.py --selftest
+
+  rust-cli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: rust-cli
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - name: Check formatting
+        run: cargo fmt --check
+      - name: Run clippy
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Run cargo test
+        run: cargo test

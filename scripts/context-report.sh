@@ -52,7 +52,7 @@ for f in "$CLAUDE_HOME/CLAUDE.md" "$PWD/CLAUDE.md"; do
 done
 
 # per-project memory index
-SLUG=$(printf '%s' "$PWD" | tr '/' '-')
+SLUG=$(printf '%s' "$PWD" | tr '/\\:' '---')
 MEM="$CLAUDE_HOME/projects/$SLUG/memory"
 if [ -f "$MEM/MEMORY.md" ]; then
   files=$(find "$MEM" -maxdepth 1 -name '*.md' 2>/dev/null | wc -l)
@@ -67,20 +67,21 @@ done
 # ------------------------------------------------- skills / agents / commands
 # Only the frontmatter block (name + description) is loaded until a skill fires.
 
-count_frontmatter() { # dir glob -> "count<TAB>tokens"
+count_frontmatter() { # pattern dir... -> "count<TAB>tokens"
+  local pat="$1"; shift
   local count=0 chars=0 f
   while IFS= read -r f; do
     [ -f "$f" ] || continue
     count=$(( count + 1 ))
     chars=$(( chars + $(awk '/^---[[:space:]]*$/{n++; next} n==1' "$f" | wc -c) ))
-  done < <(find $1 -name "$2" -not -path '*/node_modules/*' 2>/dev/null)
+  done < <(find "$@" -name "$pat" -not -path '*/node_modules/*' 2>/dev/null)
   printf '%s\t%s\n' "$count" "$(( chars / 4 ))"
 }
 
-read -r SK_N SK_T < <(count_frontmatter "$CLAUDE_HOME/skills $CLAUDE_HOME/plugins $PWD/.claude/skills" "SKILL.md")
+read -r SK_N SK_T < <(count_frontmatter "SKILL.md" "$CLAUDE_HOME/skills" "$CLAUDE_HOME/plugins" "$PWD/.claude/skills")
 [ "${SK_N:-0}" -gt 0 ] && add "$SK_T" "$SK_N skills advertised" "~$(( SK_T / SK_N )) tokens each — delete the ones you never fire"
 
-read -r AG_N AG_T < <(count_frontmatter "$CLAUDE_HOME/agents $PWD/.claude/agents" "*.md")
+read -r AG_N AG_T < <(count_frontmatter "*.md" "$CLAUDE_HOME/agents" "$PWD/.claude/agents")
 [ "${AG_N:-0}" -gt 0 ] && add "$AG_T" "$AG_N subagent definitions" "name + description listed every session"
 
 CMD_N=$(find "$CLAUDE_HOME/commands" "$PWD/.claude/commands" -name '*.md' 2>/dev/null | wc -l)
@@ -88,9 +89,11 @@ CMD_N=$(find "$CLAUDE_HOME/commands" "$PWD/.claude/commands" -name '*.md' 2>/dev
 
 # ------------------------------------------------------------------ mcp servers
 
+PY_BIN=$(command -v python3 || command -v python || true)
 MCP_LIST=$(for f in "$HOME/.claude.json" "$PWD/.mcp.json"; do
   [ -f "$f" ] || continue
-  python3 - "$f" <<'PY' 2>/dev/null
+  [ -n "$PY_BIN" ] || continue
+  "$PY_BIN" - "$f" <<'PY' 2>/dev/null
 import json, sys
 try:
     d = json.load(open(sys.argv[1]))
@@ -110,8 +113,10 @@ if [ "$JSON" -eq 1 ]; then
   first=1
   for r in "${ROWS[@]}"; do
     IFS=$'\t' read -r t l note <<<"$r"
+    l="${l//\\/\\\\}"; l="${l//\"/\\\"}"
+    note="${note//\\/\\\\}"; note="${note//\"/\\\"}"
     [ $first -eq 1 ] || printf ',\n'; first=0
-    printf '    {"tokens": %s, "source": "%s", "note": "%s"}' "$t" "${l//\"/\\\"}" "${note//\"/\\\"}"
+    printf '    {"tokens": %s, "source": "%s", "note": "%s"}' "$t" "$l" "$note"
   done
   printf '\n  ]\n}\n'
   exit 0
@@ -120,9 +125,11 @@ fi
 if [ "$QUIET" -eq 0 ]; then
   echo "=== always-on context (estimate, chars/4) ==="
   printf '%8s  %-52s %s\n' "tokens" "source" "note"
-  printf '%s\n' "${ROWS[@]}" | sort -t$'\t' -k1 -nr | while IFS=$'\t' read -r t l note; do
-    printf '%8s  %-52s %s\n' "$t" "$l" "$note"
-  done
+  if [ ${#ROWS[@]} -gt 0 ]; then
+    printf '%s\n' "${ROWS[@]}" | sort -t$'\t' -k1 -nr | while IFS=$'\t' read -r t l note; do
+      printf '%8s  %-52s %s\n' "$t" "$l" "$note"
+    done
+  fi
 
   echo
   echo "=== MCP servers (schemas are deferred by default, but each one still costs on first use) ==="
